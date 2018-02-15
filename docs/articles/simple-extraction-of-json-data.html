@@ -1,7 +1,7 @@
 <html>
 <head>
-<title>JSON Data Extractor - T. Lindstrøm's Notes</title>
-<link rel="stylesheet" type="text/css" href="/tsl-notes/assets/styles.css">
+<title>JSON Data Extractor - Read Chinese Online</title>
+<link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/themes/prism-okaidia.min.css">
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/prism.min.js"></script>
@@ -10,10 +10,18 @@
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
 
 </head>
-<body>
+<!-- body is hidden until initial front end transforms are applied -->
+<body style="display: none;">
+
+<div id="wordbox">
+    <div id="chinese"></div>
+    <div id="pinyin"></div>
+    <div id="meaning"></div>
+</div>
+
 <div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
     <div class="container">
-        <a href="/tsl-notes/">T. Lindstrøm's Notes</a>
+        <a href="/rco/"><strong>中文</strong> Read Chinese Online</a>
     </div>
 </div>
 
@@ -26,7 +34,7 @@
 
     <p>
         <strong>Date:</strong> 2017-12-16 &nbsp;&nbsp;&nbsp;
-        <strong>Tags:</strong> <a href="/tsl-notes/tags/javascript.html">javascript</a> <a href="/tsl-notes/tags/json.html">json</a> 
+        <strong>Tags:</strong> <a href="/rco/tags/javascript.html">javascript</a> <a href="/rco/tags/json.html">json</a> 
     </p>
     <hr>
 
@@ -234,6 +242,11 @@ let extract = function() {
 </code></pre>
 </div>
 
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
+<script src="/rco/assets/js/rco.js"></script>
 
 </body>
 </html>

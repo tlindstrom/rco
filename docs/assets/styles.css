@@ -435,3 +435,33 @@ h5 {
   background-color: gray;
   background-size: cover;
   background-position: center; }
+
+[data-word] {
+  cursor: pointer; }
+  [data-word]:hover {
+    background-color: yellow; }
+
+[data-highlight] {
+  cursor: pointer; }
+  [data-highlight].highlighted {
+    background-color: #d264cd; }
+
+#wordbox {
+  display: none;
+  position: absolute;
+  z-index: 9999999999;
+  border: 1px solid #c8c8c8;
+  box-shadow: 0px 1px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  transform: translate(-50%, calc(-100% - 30px)); }
+
+.example-sentence .chinese {
+  font-size: 0; }
+  .example-sentence .chinese [data-word] {
+    font-size: 24px; }
+
+.example-sentence .meaning {
+  font-style: italic; }

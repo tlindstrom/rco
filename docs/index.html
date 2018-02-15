@@ -1,7 +1,7 @@
 <html>
 <head>
-<title>Home - T. Lindstrøm's Notes</title>
-<link rel="stylesheet" type="text/css" href="/tsl-notes/assets/styles.css">
+<title>Home - Read Chinese Online</title>
+<link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/themes/prism-okaidia.min.css">
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/prism.min.js"></script>
@@ -10,10 +10,18 @@
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
 
 </head>
-<body>
+<!-- body is hidden until initial front end transforms are applied -->
+<body style="display: none;">
+
+<div id="wordbox">
+    <div id="chinese"></div>
+    <div id="pinyin"></div>
+    <div id="meaning"></div>
+</div>
+
 <div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
     <div class="container">
-        <a href="/tsl-notes/">T. Lindstrøm's Notes</a>
+        <a href="/rco/"><strong>中文</strong> Read Chinese Online</a>
     </div>
 </div>
 
@@ -21,54 +29,43 @@
 
 <div class="container">
 
-    <h1 class="article-title">T. Lindstrøm's Notes</h1>
+    <h1 class="article-title">Read Chinese Online</h1>
     <h2 class="article-description">
-        Hello! This is where I dump my notes about technology and software engineering.
+        Hello! This is the new, static RCO.
     </h2>
     <hr>
 
     <h2>Articles</h2>
     
-        <a href="/tsl-notes/articles/linux-command-line-tips.html">2017-12-20: Linux Command Line Tips</a><br>
+        <a href="/rco/articles/linux-command-line-tips.html">2017-12-20: Linux Command Line Tips</a><br>
     
-        <a href="/tsl-notes/articles/mongodb-administration.html">2018-02-01: MongoDB Administration Notes</a><br>
+        <a href="/rco/articles/mongodb-administration.html">2018-02-01: MongoDB Administration Notes</a><br>
     
-        <a href="/tsl-notes/articles/proxying-to-microservices.html">2017-12-19: Proxying to Microservices</a><br>
+        <a href="/rco/articles/proxying-to-microservices.html">2017-12-19: Proxying to Microservices</a><br>
     
-        <a href="/tsl-notes/articles/simple-extraction-of-json-data.html">2017-12-16: JSON Data Extractor</a><br>
+        <a href="/rco/articles/simple-extraction-of-json-data.html">2017-12-16: JSON Data Extractor</a><br>
     
-        <a href="/tsl-notes/articles/software-licenses.html">2017-12-16: Software Licenses</a><br>
+        <a href="/rco/articles/software-licenses.html">2017-12-16: Software Licenses</a><br>
     
-        <a href="/tsl-notes/articles/static-site-generation-without-a-framework.html">2017-12-17: Static Site Generation without a Framework</a><br>
+        <a href="/rco/articles/static-site-generation-without-a-framework.html">2017-12-17: Static Site Generation without a Framework</a><br>
+    
+        <a href="/rco/articles/吧.html">2017-12-20: 吧</a><br>
     
 
-    <h2>Tags</h2>
+    <h2>Words</h2>
     
-        <a href="/tsl-notes/tags/linux.html">linux (1)</a><br>
+        <a href="/rco/words/吧.html">吧</a><br>
     
-        <a href="/tsl-notes/tags/mongodb.html">mongodb (1)</a><br>
-    
-        <a href="/tsl-notes/tags/docker.html">docker (1)</a><br>
-    
-        <a href="/tsl-notes/tags/nginx.html">nginx (1)</a><br>
-    
-        <a href="/tsl-notes/tags/traefik.html">traefik (1)</a><br>
-    
-        <a href="/tsl-notes/tags/microservices.html">microservices (1)</a><br>
-    
-        <a href="/tsl-notes/tags/javascript.html">javascript (2)</a><br>
-    
-        <a href="/tsl-notes/tags/json.html">json (1)</a><br>
-    
-        <a href="/tsl-notes/tags/software-licenses.html">software-licenses (1)</a><br>
-    
-        <a href="/tsl-notes/tags/node.html">node (1)</a><br>
-    
-        <a href="/tsl-notes/tags/static-site-generation.html">static-site-generation (1)</a><br>
+        <a href="/rco/words/最.html">最</a><br>
     
 
 </div>
 
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
+<script src="/rco/assets/js/rco.js"></script>
 
 </body>
 </html>

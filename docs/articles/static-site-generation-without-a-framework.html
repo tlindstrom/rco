@@ -1,7 +1,7 @@
 <html>
 <head>
-<title>Static Site Generation without a Framework - T. Lindstrøm's Notes</title>
-<link rel="stylesheet" type="text/css" href="/tsl-notes/assets/styles.css">
+<title>Static Site Generation without a Framework - Read Chinese Online</title>
+<link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/themes/prism-okaidia.min.css">
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/prism.min.js"></script>
@@ -10,10 +10,18 @@
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
 
 </head>
-<body>
+<!-- body is hidden until initial front end transforms are applied -->
+<body style="display: none;">
+
+<div id="wordbox">
+    <div id="chinese"></div>
+    <div id="pinyin"></div>
+    <div id="meaning"></div>
+</div>
+
 <div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
     <div class="container">
-        <a href="/tsl-notes/">T. Lindstrøm's Notes</a>
+        <a href="/rco/"><strong>中文</strong> Read Chinese Online</a>
     </div>
 </div>
 
@@ -26,7 +34,7 @@
 
     <p>
         <strong>Date:</strong> 2017-12-17 &nbsp;&nbsp;&nbsp;
-        <strong>Tags:</strong> <a href="/tsl-notes/tags/javascript.html">javascript</a> <a href="/tsl-notes/tags/node.html">node</a> <a href="/tsl-notes/tags/static-site-generation.html">static-site-generation</a> 
+        <strong>Tags:</strong> <a href="/rco/tags/javascript.html">javascript</a> <a href="/rco/tags/node.html">node</a> <a href="/rco/tags/static-site-generation.html">static-site-generation</a> 
     </p>
     <hr>
 
@@ -203,6 +211,11 @@ articles.forEach(article => {
 <p>For example, we could make our compilation script read pages from a tree structure, and then automatically generate a page tree from this, along with a javascript-powered mega-menu for navigation. I might write about how to do that in the future. This stuff is a lot of fun.</p>
 </div>
 
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
+<script src="/rco/assets/js/rco.js"></script>
 
 </body>
 </html>
