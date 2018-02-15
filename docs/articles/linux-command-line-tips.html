@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>Linux Command Line Tips - T. Lindstrøm's Notes</title>
+<link rel="stylesheet" type="text/css" href="/tsl-notes/assets/styles.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/themes/prism-okaidia.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
+
+</head>
+<body>
+<div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
+    <div class="container">
+        <a href="/tsl-notes/">T. Lindstrøm's Notes</a>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h1 class="article-title">Linux Command Line Tips</h1>
+    <h2 class="article-description">Some nice tools for having a good time with the Linux terminal</h2>
+    
+
+    <p>
+        <strong>Date:</strong> 2017-12-20 &nbsp;&nbsp;&nbsp;
+        <strong>Tags:</strong> <a href="/tsl-notes/tags/linux.html">linux</a> 
+    </p>
+    <hr>
+
+</div>
+<div class="container">
+    
+
+<p>Often as developers we find ourself having to stuff on a server, with only the Linux terminal as interface. In order to be a well rounded full stack developer, you definitely need to be comfortable working with the terminal. Obviously, you can fill thick books with information about all the crazy things you can do with <strong>bash</strong>, not to mention with Linux in general. I do believe however, that just by mastering the basics of certain Linux tools, you can navigate a Linux system from the command line with some confidence. This article lists out <em>my</em> go-to tools and commands.</p>
+
+<h2>Basic commands</h2>
+
+<pre><code class="language-none">
+cat x           outputs the entire contents of a file x
+tail -n 5 x     outputs the last 10 lines of file x
+less x          enters a scrollable view of file x
+</code></pre>
+
+<h2>vim</h2>
+<p>Although Ubuntu comes with the slightly more intuitive text editor <strong>nano</strong>, <strong>vi</strong> aka <strong>vim</strong> is still the quintessential Linux text editor. It's available on pretty much any Linux distro ever. It's got a really bizarre interface, but it's very powerful, and some people really really love it (for some reason). Knowing the basics of vim is worth the effort:</p>
+
+<pre><code class="language-none">
+
+Vim has different MODES. When you start the program, you're in NORMAL MODE.
+Depending on what you want to do, you will switch back and forth between 
+the various modes. You enter a mode by pressing a specific key, and when 
+you're in a specific mode, you can go back to NORMAL MODE by pressing ESC.
+
+
+--NORMAL MODE--
+
+These are some of the commands in normal mode:
+
+I             go to input mode
+:             go to command mode
+V             go to visual mode
+ESC           go back to normal mode
+
+u             undo
+CTRL+r        redo
+
+
+--INSERT MODE--
+
+This is the mode where you input characters, the way a text editor usually
+works. You will usually press I to enter INSERT MODE, then write some
+characters, and then press ESC to go back to normal mode again.
+
+
+--COMMAND MODE--
+
+Command mode shows a little command prompt at the bottom of the screen.
+By writing commands here you can make all sorts of things happen. The most
+important commands are :
+
+wq                write and quit (save and quit vim)
+q!                quit without saving changes
+
+You can set variables to change vim's behavior. My favorites are:
+
+set autoident     maintain indentation upon going to next line
+set tabstop=4     reduces the size of tab indents to 4 spaces
+set number        show line numbers
+
+If you keep setting these variables every time you open vim, you might want 
+to create a .vimrc file containing the variables instead, and put it in your
+user's root folder. Then the variables will be loaded automatically upon
+starting vim.
+
+
+--VISUAL MODE--
+
+This mode allows you to select text by moving your cursor around. After
+selecting an area, you can use the following keys to do some things:
+
+d        cut the selected area (works for deleting too)
+y        copy the selected area
+p        paste
+<        decrease area's indentation
+>        increase area's indentation
+
+</code></pre>
+
+<h2>tmux</h2>
+<p><strong>tmux</strong>, abbreviation for <strong>Terminal Multiplexer</strong>, does just what it sounds like it does. It allows you split up your terminal into several smaller terminals. This is really helpful when trying to get some more complex work done. It's a bit like keeping several windows or browser tabs open at once. Imagine how annoying it would be to work with only ever one window or browser open - that's what it's like to work with the terminal without tmux!</p>
+
+<p>Speaking of tabs, tmux does support tabs too - actually it supports all kinds of cool stuff. I do think however, that it's valuable when dealing with these tools, to get comfortable with the most useful subset of functionality, the stuff that makes the biggest difference to your workflow. Trying to learn too many functions you will end up forgetting them all as quickly as you learned them.</p>
+
+<p>Just run the command <strong>tmux</strong> to start a tmux session. It's just like a normal terminal session, except you can run tmux commands. Some distributions don't come with tmux (Ubuntu does), but it should be easily available from the distribution's package manager.</p>
+
+<p>tmux's comands are initiated by pressing CTRL and B, followed by a second input. Here are what I consider the most essential functions:</p>
+
+<pre><code class="language-none">
+CTRL-b %                   Divide current pane horizontally
+CTRL-b "                   Divide current pane vertically
+CTRL-b (arrow key)         Move to another pane
+CTRL-b CTRL-(arrow key)    Adjust size of current pane
+</code></pre>
+
+<p>To close a pane, you just write <strong>exit</strong>, just like when ending any other type of terminal session. If you exit all your panes, your tmux session will end, and you will go back to your regular terminal.</p>
+
+<h2>Other Neat Stuff</h2>
+
+<p><strong>tree</strong> is a neat little program that prints out a tree view of the directory you're in. Very handy for oriented yourself in a file system whose structe your don't know. The <strong>-L</strong> flag allows you to specify a max depth to show. <strong>tree</strong> is not available out of the box in most distributions, but it should be just one install command away.</p>
+</div>
+
+
+</body>
+</html>

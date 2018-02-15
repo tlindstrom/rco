@@ -1,0 +1,62 @@
+@import 'normalize';
+@import 'typography';
+@import 'layout';
+
+@import 'components/banner';
+
+
+
+
+[data-word]{
+    cursor: pointer;
+
+    &:hover {
+        background-color: yellow;
+    }
+}
+
+
+[data-highlight]{
+    cursor: pointer;
+
+    &.highlighted {
+        background-color: rgb(210,100,205);
+    }
+}
+
+#wordbox {
+    display: none;
+    position: absolute;
+    z-index: 9999999999;
+
+    border: 1px solid rgb(200,200,200);
+    box-shadow: 0px 1px 20px 0 rgba(0,0,0,0.1);
+    border-radius: 3px;
+    background-color: white;
+    padding: 20px;
+
+    text-align: center;
+    transform: translate(-50%, calc(-100% - 30px));
+}
+
+
+
+
+
+
+
+.example-sentence {
+    .chinese {
+        font-size: 0;
+        [data-word] {
+            font-size: 24px;
+        }
+    }
+    .pinyin {
+        
+    }
+    .meaning {
+        font-style: italic;
+    }
+
+}

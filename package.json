@@ -1,0 +1,19 @@
+{
+  "name": "tsl-notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "serve": "node compile.js && node dev-server.js",
+    "update-docs": "node compile.js && node update-docs.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "fs-extra": "^4.0.3",
+    "node-sass": "^4.7.2",
+    "nunjucks": "^3.0.1",
+    "rimraf": "^2.6.2"
+  }
+}

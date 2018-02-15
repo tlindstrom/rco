@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+
+    <h1 class="article-title">Read Chinese Online</h1>
+    <h2 class="article-description">
+        Hello! This is the new, static RCO.
+    </h2>
+    <hr>
+
+    <h2>Articles</h2>
+    {% for x in data.articles %}
+        <a href="{{data.prefix}}/articles/{{x.filename}}">{{x.metadata.date}}: {{x.metadata.title}}</a><br>
+    {% endfor %}
+
+    <h2>Words</h2>
+    {% for x in data.wordPages %}
+        <a href="{{data.prefix}}/words/{{x.filename}}">{{x.metadata.title}}</a><br>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

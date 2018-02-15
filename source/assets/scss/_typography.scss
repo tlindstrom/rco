@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Spectral+SC');
+
+body{
+    font-family: Catamaran;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Spectral SC';
+    font-weight: 100;
+}
+h1 {
+    font-size: 35px;
+}
+h2 {
+    font-size: 30px;
+}
+h3 {
+    font-size: 22px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 16px;
+}
+
+
+
+
+.article-title {
+    margin-bottom: 5px;
+}
+.article-description {
+    font-family: Catamaran;
+    font-size: 20px;
+    margin-top: 5px;
+}

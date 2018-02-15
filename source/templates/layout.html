@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>{{ page.title }} - Read Chinese Online</title>
+<link rel="stylesheet" type="text/css" href="{{data.prefix}}/assets/styles.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/themes/prism-okaidia.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
+
+</head>
+<!-- body is hidden until initial front end transforms are applied -->
+<body style="display: none;">
+
+<div id="wordbox">
+    <div id="chinese"></div>
+    <div id="pinyin"></div>
+    <div id="meaning"></div>
+</div>
+
+<div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
+    <div class="container">
+        <a href="{{data.prefix}}/"><strong>中文</strong> Read Chinese Online</a>
+    </div>
+</div>
+
+{% block content %}{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="{{data.prefix}}/assets/js/tongwen/tongwen-ts.js"></script>
+<script src="{{data.prefix}}/assets/js/rco.js"></script>
+
+</body>
+</html>

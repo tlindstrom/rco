@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <h1 class="article-title">{{word.metadata.title}}</h1>
+    <h2 class="article-description">{{word.metadata.description}}</h2>
+    
+    <p>
+        <strong>HSK Level:</strong> {{word.metadata.hskLevel}} &nbsp;&nbsp;&nbsp;
+        <strong>Tags:</strong> {% for x in word.metadata.tags %}<a href="{{data.prefix}}/tags/{{x}}.html">{{x}}</a> {% endfor %}
+    </p>
+    <hr>
+
+</div>
+
+{{word.body}}
+
+
+{% endblock %}

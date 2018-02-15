@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>MongoDB Administration Notes - T. Lindstrøm's Notes</title>
+<link rel="stylesheet" type="text/css" href="/tsl-notes/assets/styles.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/themes/prism-okaidia.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
+
+</head>
+<body>
+<div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
+    <div class="container">
+        <a href="/tsl-notes/">T. Lindstrøm's Notes</a>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h1 class="article-title">MongoDB Administration Notes</h1>
+    <h2 class="article-description">Some notes on how to work with MongoDB</h2>
+    
+
+    <p>
+        <strong>Date:</strong> 2018-02-01 &nbsp;&nbsp;&nbsp;
+        <strong>Tags:</strong> <a href="/tsl-notes/tags/mongodb.html">mongodb</a> 
+    </p>
+    <hr>
+
+</div>
+<div class="container">
+    
+
+<h2>Setup</h2>
+
+<h2>Administration interfaces</h2>
+
+<h2>Backups</h2>
+
+<p>Backing up and restoring data is done easily with the <strong>mongodump</strong> and <strong>mongorestore</strong> tool. These tools should not be confused with <strong>mongoexport</strong> and <strong>mongoimport</strong>, which allow you to load a import and export data in JSON format. (Not ideal for backups, due to loss of information - JSON has fewer types)</p>
+
+<p>The <strong>mongodump</strong> command could look like this:</p>
+
+<pre><code class="language-bash">
+mongodump \
+--host 188.166.100.89 \
+--port 27017 \
+-u administrator \
+-p pass \
+--gzip \
+--archive=backup.$(date +%Y_%m_%d_%H%M%S).gz
+</code></pre>
+
+<p>You could set this up as a daily job in Jenkins for a very simple backup system.</p>
+
+
+</div>
+
+
+</body>
+</html>

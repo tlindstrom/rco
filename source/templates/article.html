@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <h1 class="article-title">{{article.metadata.title}}</h1>
+    <h2 class="article-description">{{article.metadata.description}}</h2>
+    
+
+    <p>
+        <strong>Date:</strong> {{article.metadata.date}} &nbsp;&nbsp;&nbsp;
+        <strong>Tags:</strong> {% for x in article.metadata.tags %}<a href="{{data.prefix}}/tags/{{x}}.html">{{x}}</a> {% endfor %}
+    </p>
+    <hr>
+
+</div>
+<div class="container">
+    {{article.body}}
+</div>
+
+{% endblock %}

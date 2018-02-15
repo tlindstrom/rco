@@ -1,0 +1,239 @@
+<html>
+<head>
+<title>JSON Data Extractor - T. Lindstrøm's Notes</title>
+<link rel="stylesheet" type="text/css" href="/tsl-notes/assets/styles.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/themes/prism-okaidia.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
+
+</head>
+<body>
+<div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
+    <div class="container">
+        <a href="/tsl-notes/">T. Lindstrøm's Notes</a>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h1 class="article-title">JSON Data Extractor</h1>
+    <h2 class="article-description">A handy little JavaScript solution for extracting data from big JSON files</h2>
+    
+
+    <p>
+        <strong>Date:</strong> 2017-12-16 &nbsp;&nbsp;&nbsp;
+        <strong>Tags:</strong> <a href="/tsl-notes/tags/javascript.html">javascript</a> <a href="/tsl-notes/tags/json.html">json</a> 
+    </p>
+    <hr>
+
+</div>
+<div class="container">
+    
+
+<p>
+    I used to be annoyed with how you would have to write a lot of bloat for checking the existence of intermediate
+    values when extracting data from a piece of JSON. I've written a nice little function that makes this process a lot
+    less frustrating.
+</p>
+<p>
+    This method is particularly helpful when dealing with APIs that deliver their data in convoluted, deeply nested
+    structures which you want to condense into something a bit more succinct before you start passing it around in your
+    own application.
+</p>
+
+<h2>The Problem</h2>
+<p>
+    Imagine that you're reading some JSON data that's structured like this:
+</p>
+<pre><code class="language-javascript">
+{
+    "name": "Bobby Brown",
+    "favoriteFood": {
+        "type": "pizza",
+        "place": "Jerry's Pizza Place"
+    }
+}
+</code></pre>
+<p>
+    Now, let's say you want to get the <strong>type</strong> of Bobby Brown's <strong>favoriteFood</strong>, and that
+    there's no guarantee that he even has a favorite food. If the <strong>favoriteFood</strong> property doesn't
+    exist, a <strong>bobbyBrown.favoriteFood.type</strong> lookup would throw an error.
+</p>
+<p>
+    To avoid your application spewing lots of errors, you might find yourself writing null checks like this:
+</p>
+<pre><code class="language-javascript">
+if (bobbyBrown.favoriteFood) theFoodType = bobbyBrown.favoriteFood.type;
+</code></pre>
+<p>
+    Which might be fine for simple cases like this, even if it leads to a bit of annoying duplication. Anyway,
+    what if, as is often the case, you have a much deeper and more complicated JSON structure? What if you're
+    looking up the following value, with the possibility of any of the intermediate values not existing.
+    (Maybe Bobby doesn't have a jacket on, or his jacket doensn't have a pocket)
+</p>
+<pre><code class="language-javascript">
+let itemsInBobbyBrownsPocket = bobbyBrown.suit.jacket.pocket.items;
+</code></pre>
+<p>
+    If you want the same error safety here, you might end up writing something like this:
+</p>
+<pre><code class="language-javascript">
+let itemsInBobbyBrownsPocket;
+if (
+    bobbyBrown.suit &&
+    bobbyBrown.suit.jacket &&
+    bobbyBrown.suit.jacket.pocket
+){
+    itemsInBobbyBrownsPocket = bobbyBrown.suit.jacket.pocket.items;
+}
+</code></pre>
+<p>
+    This can quickly get a bit out of hand.
+</p>
+
+
+<h2>The Solution</h2>
+<p>
+    I was working on an application where we kept doing a lot of this, and I started looking for a way to get around it. I was surprised that I could not find any library that solved this in a simple way, so I sat down and wrote my own little function for this purpose.
+</p>
+<p>
+    The API is simple - you simply call an <strong>extract</strong> function as follows, with the object from which you want to extract as the first parameter, and the subsequent parameters being strings of the properties you want to drill into:
+</p>
+<pre><code class="language-javascript">
+extract( bobbyBrown, 'suit', 'jacket', 'pocket', 'items' );
+</code></pre>
+<p>
+    If a property anywhere along the chain does not exist, the function will just return 'null'.
+</p>
+<p>
+    You can also access an array index. The following call fetches the value of the first item in Bobby Brown's pocket:
+</p>
+<pre><code class="language-javascript">
+extract( bobbyBrown, 'suit', 'jacket', 'pocket', 'items', [0], 'value' );
+</code></pre>
+
+<p>
+    Another annoyance is when you need to select an object from an array, determined by an id specified as a property on that object. Using the extraction script, you an deal with this situation by passing in a lambda predicate (just an anonymous function that returns a bool), and it will find the first object that matches the predicate. See how in the following piece of code, instead of fetching the first element in Bobby's pocket, we fetch the item whose <strong>id</strong> property matches <em>'item0005'</em>.
+</p>
+
+<pre><code class="language-javascript">
+extract( bobbyBrown, 'suit', 'jacket', 'pocket', 'items', x => x.id == 'item0005', 'value' );
+</code></pre>
+
+<p>
+    Finally, the extraction function has the ability to do debug printouts to show what it's doing, if you add the string <strong>'TRACE'</strong> as the first argument, before the object from which you want to extract something. This can be very handy to identify an error in your arguments, when your call unexpectedly returns 'undefined'. This is how you would make the previous call, but with a trace: 
+</p>
+
+<pre><code class="language-javascript">
+extract( 
+    'TRACE', 
+    bobbyBrown, 
+    'suit', 
+    'jacket', 
+    'pocket', 
+    'items', 
+    x => x.id == 'item0005', 
+    'value');
+</code></pre>
+
+<p>
+    So with no further ado, here's the script:
+</p>
+
+<pre><code class="language-javascript">
+/*
+    extract
+    TSL, September 2017
+    
+    The 'extract' function allows you to easily pull out data nested deep within complicated JSON structures, in one function call.
+    If the requested data can not be reached, the function will return UNDEFINED. This mitigates the need for "null pointer checks"
+    for every step of the lookup chain.
+
+    It also supports array lookup, both by index, and by a filtering function.
+
+    You can activate tracing for debugging purposes, by adding 'TRACE' as the first argument.
+    
+
+    USAGE EXAMPLES THAT DEMONSTRATE FUNCTIONALITY
+    ---------------------------------------------
+
+    extract( person, 'data', 'firstName' );
+
+    Equivalent to person.data.firstName, except it will not throw and exception if 'person' or 'person.data' returns undefined.
+
+
+    extract( 'TRACE', person, 'data', 'firstName' );
+
+    The same as the previous call, except with 'TRACE' added as first parameter. This activates tracing,
+    so you can see where in the chain your 'extract' call fails.
+
+
+    extract( person, 'items', [0], 'value' );
+
+    Equivalent to person.items[0].value, except it will not throw exceptions if 'person', 'person.items',
+    or 'person.items[0]' returns undefined.
+
+
+    extract( person, 'items', x => x.id==22, 'value' );
+
+    Equivalent to person.items.find(x => x.id==22).value, except it will not throw exceptions if 'person', 
+    'person.items', or 'person.items[0].find(x => x.id==22)' is undefined.
+
+ */
+
+let extract = function() {
+    let args = Array.prototype.slice.call(arguments);
+
+    trace = false;
+    if (args[0] == 'TRACE'.toUpperCase()){
+        trace = true;
+        args.shift(); 
+
+        console.log('------------------------------\nEXTRACT TRACE\n------------------------------');
+    }
+
+    let obj = args.shift();
+
+    while (args.length > 0) {
+        let next = args.shift();
+
+        if (next.constructor == String) {
+            if (trace) console.log('OBJECT PROPERTY LOOKUP');
+            obj = obj[next];
+
+        } else if (next.constructor == Array) {
+            if (trace) console.log('ARRAY INDEX LOOKUP');
+            obj = obj[next[0]];
+
+        } else if (next.constructor == Function) {
+            if (trace) console.log('ARRAY SEARCH'); 
+            if (obj.constructor !== Array) {
+                if (trace) console.log('NOT AN ARRAY - RETURNING UNDEFINED\n------------------------------');
+                return undefined;
+            }
+            obj = obj.find(next);
+
+        } else {
+            if (trace) console.log('ENCOUNTERED INVALID ARGUMENT - RETURNING UNDEFINED\n------------------------------');
+            return undefined;
+        }
+
+        if (!obj) {
+            if (trace) console.log('NOT FOUND - RETURNING UNDEFINED\n------------------------------');
+            return undefined;
+        } 
+    }
+
+    if (trace) console.log('EXTRACT WAS SUCCESSFUL\n------------------------------');
+    return obj;
+}
+</code></pre>
+</div>
+
+
+</body>
+</html>

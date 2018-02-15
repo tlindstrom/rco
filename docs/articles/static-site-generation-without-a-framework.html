@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>Static Site Generation without a Framework - T. Lindstrøm's Notes</title>
+<link rel="stylesheet" type="text/css" href="/tsl-notes/assets/styles.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/themes/prism-okaidia.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/remove-initial-line-feed/prism-remove-initial-line-feed.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.9.0/plugins/unescaped-markup/prism-unescaped-markup.min.js"></script>
+
+</head>
+<body>
+<div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
+    <div class="container">
+        <a href="/tsl-notes/">T. Lindstrøm's Notes</a>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h1 class="article-title">Static Site Generation without a Framework</h1>
+    <h2 class="article-description">You don't really need a framework for static sites</h2>
+    
+
+    <p>
+        <strong>Date:</strong> 2017-12-17 &nbsp;&nbsp;&nbsp;
+        <strong>Tags:</strong> <a href="/tsl-notes/tags/javascript.html">javascript</a> <a href="/tsl-notes/tags/node.html">node</a> <a href="/tsl-notes/tags/static-site-generation.html">static-site-generation</a> 
+    </p>
+    <hr>
+
+</div>
+<div class="container">
+    
+
+<p>I think that when it comes to technology, there is often a lot value in learning to do things from the ground up, instead of relying on a framework to do all the heavy lifting for you. In many cases a framework might save you time and effort, but it will keep you from learning the underlying technology, which by definition will be more flexible and powerful, and which will teach you lessons that are more general in scope. Instead of spending your hours learning a specific pattern created for a very specific purpose, you learn the core building blocks from which all software is made.</p>
+
+<p>So for this website, instead of getting down with a static site framework like Jekyll, Hugo or Hexo, I decided to just play with defining and rendering the data myself.</p>
+
+<h2>The Benefits of Static Site Generation</h2>
+
+<p>For the uninitiated: Why bother with static site generation in the first place? Why not just do the usual dynamic song and dance, with a database-powered backend, some kind of CMS or whatever?</p>
+
+<p>A couple of reasons:</p>
+<ul>
+    <li><strong>Simplicity and flexibility:</strong> If you're comfortable writing markup, why not just do that directly?</li>
+    <li><strong>Backups:</strong> The whole thing is stored with a full edit history in git. It's rock solid and no effort!</li>
+    <li><strong>Security:</strong> No need to worry about being hacked. There's nothing to hack, just a bunch of HTML files on git.</li>
+    <li><strong>Speaking of git - free hosting on github! :)</strong></li>
+</ul>
+
+<p>Summing up, it's simple, flexible, safe, free, and you don't have to worry about backups. Not bad at all!</p>
+
+<h2>DIY Static Site Generator with Node.js</h2>
+
+<p>So, what functionality do we need in a static site generator? We need:</p>
+
+<ul>
+    <li>Some form of structured data</li>
+    <li>A script that turns this data into a bunch of HTML files fit for serving with a web server like it's 1999</li>
+</ul>
+
+<p>Our datastore will be just a bunch of files. We could have used a database for this, if we wanted to create some sophisticated content editing tools. If we wanted a database, and also wanted to put our content in git, a flat file database like NeDB would be perfect. For the purposes of a simple blog-like thing however, simple files is a great way to store our content. After all, the file system is a powerful database in its own right, and text editor a very powerful editing tool. I believe utilizing the power of these basic tools is the key to having a good time with static site generation.</p>
+
+<h2>How to work with Github Pages</h2>
+<p>Now, let's have a look at the details of serving static HTML with Github Pages.</p>
+
+<p>There's not really a lot to it. When you activate it from your repository's preferences, you can choose between serving the repo's root folder, or a <strong>/docs</strong> subfolder. We'll go with the subfolder variant, since it allows us to keep the rest of our framework in the root folder, and have a compilation script compile to <strong>/docs</strong>.</p>
+
+<p>Also, something to note about Github Pages: Unless you set your site to be served from the root domain of your github account (you can only have one), or you buy a domain and direct that to your site, your site will not be served from the root path of the domain - like this site, which is currently served from <strong>/tsl-notes</strong>. We must keep this in mind when writing our compilation script, so that links include the first URL segment, equivalent to this site's <strong>/tsl-notes</strong>.</p>
+
+<h2>How this Site is Implemented</h2>
+
+<p>To investigate the implementation details more closely, you can check out the repo.</p>
+
+<p>I have one script called <strong>compile.js</strong>, that compiles the site to a <strong>/dist</strong> folder. This folder is temporary, and named in .gitignore, so git doesn't pick it up. Another script, <strong>update-docs.js</strong> will copy the contents of /dist into <strong>/docs</strong>, which unlike /dist gets stored in git. (That's how Github can serve its contents, after all) This setup allows me to save my work by committing and pushing changes to the repository without updating the site before the new content is ready. When I want to deploy the current content, I run the <strong>update-docs.js</strong> script, and push to github, thereby updating the website.</p>
+
+<p>I have the following scripts set up in the project's <strong>package.json</strong>:</p>
+
+<pre><code class="language-json">
+"scripts": {
+    "serve": "node compile.js && node dev-server.js",
+    "update-docs": "node compile.js && node update-docs.js"
+},
+</code></pre>
+
+<p>Both of them first compile the site to /dist.</p>
+
+<p>After compiling, the <strong>serve</strong> script will run <strong>dev-server.js</strong>, which is just a little Express server that serves this folder at the <strong>/tsl-notes</strong> route. This mimics the behavior of Github Pages, which, as mentioned previously, will serve the page at this route.</p>
+
+<pre><code class="language-javascript">
+let express = require('express');
+let app = express();
+
+app.get('/', (req,res) => res.redirect('/tsl-notes'));
+app.use('/tsl-notes', express.static('dist'));
+
+app.listen(9999, () => console.log('Listening on port 9999'));
+</code></pre>
+
+<p>(The redirect on the '/' path is just a convenience to reduce typing)</p>
+
+<p>The <strong>update-docs.js</strong>, as mentioned earlier, updates the <strong>/docs</strong> folder. It looks like this</p>
+
+<pre><code class="language-javascript">
+let rimraf = require('rimraf');
+let fs = require('fs-extra');
+
+rimraf.sync(__dirname + '/docs');
+fs.copySync(__dirname + '/dist', __dirname + '/docs');
+
+console.log('\nUPDATED DOCS FOLDER\n');
+</code></pre>
+
+<p>'Rimraf' does a recursive delete, making sure the /docs directory is gone. Then it copies over the contents of /dist.</p>
+
+<p>These two npm scripts, in combination with git, are all that is needed to develop and preview content locally, and to deploy the content when it's ready. They can be run by writing <strong>npm run serve</strong>, and <strong>npm run update-docs</strong>, respectively</p>.
+
+<p>We have of course still not looked at the most important part of the application: the compilation logic in <strong>compile.js</strong>.</p>
+
+<h2>The Compilation Script</h2>
+<h3>Step 1: Reading in the Data</h3>
+
+<p>The compilation script starts off by reading all the content data into memory. If our data was stored in a database, this step would consist in making database queries. In our case, it's a matter of reading all the flat files.</p>
+
+<p>The files look something like this:</p>
+
+<pre><code class="language-none">
+{
+    "title": "The Title of the Article",
+    "description": "Here there's a bit more info about what the article is about",
+    "date": "2017-12-16",
+    "tags": ["a-tag", "another-tag"]
+}
+---
+
+Down here is the article.
+This is just good old <strong>HTML</strong>!
+</code></pre>
+
+<p>Similarly to how Hugo and Jekyll work, my article files contain a metadata object (just a JSON object), and the article's HTML, separated by a <strong>---</strong> token.</p>
+
+<p>Now let's look at how <strong>compile.js</strong> loads these files into memory:</p>
+
+<pre><code class="language-javascript">
+// load data
+console.log('\n--- LOADING DATA ---\n');
+let articles = [];
+let tags = {};
+fs.readdirSync(__dirname + '/source/content/articles').forEach(x => {
+    console.log('READING FILE: ' + __dirname + '/source/content/articles/' + x);
+    let file = fs.readFileSync(__dirname + '/source/content/articles/' + x, 'utf8').split('---');;
+    articles.push({
+        metadata: JSON.parse(file.shift()),
+        body: file.join('---'),
+        filename: x
+    });
+});
+articles.forEach(a => {
+    a.metadata.tags.forEach(tag => {
+        if (tags[tag] == undefined) tags[tag] = 1;
+        else tags[tag]++;
+    });
+});
+</code></pre>
+
+<p>This is all the data loading happening in the current version of this application. It only reads one source of data - the files in the <strong>/content/articles</strong> directory. It iterates over those files and saves their data into an array of 'article' objects, containing the metadata, the HTML body, and the filename of the file from which it was ready. This is all the data we need to generate some awesome HTML pages.</p>
+
+<p>We also gather the tags of all the pages into a separate array, and count how many articles there are for each tag.</p>
+
+<p>The splitting logic for the --- is a bit lazy, I know. But it works, so whatever, right? :)</p>
+
+<p>BTW: If you're worried that this approach might lead to too much data being loaded into memory, you need to worry. You can load hundreds of megabytes into memory without it being a problem for Node, and that should be enough for most sites for sure. The rendering speed would likely be the first bottleneck for a page built after this pattern. The solution would be to modify the pattern so that partial rendering would be possible - f.ex. rendering a particular page.</p>
+
+<h3>Step 2: Generating the Pages</h3>
+<p>The next step is to utilizing the gathered data to render the site's HTML pages. We'll want to use a templating library for this. I first started out using <strong>EJS</strong>, but it got messy really quickly, so I switched over to <strong>Nunjucks</strong>, the Node port of Jinja2, which has been working great so far.</p>
+
+<p>This is how I render the article pages:</p>
+
+<pre><code class="language-javascript">
+fs.mkdirSync(__dirname + '/dist/articles');
+articles.forEach(article => {
+    console.log('WRITING FILE: ' + __dirname + '/dist/articles/' + article.filename);
+    fs.writeFileSync(__dirname + '/dist/articles/' + article.filename, nunjucks.render('article.html', {
+        data: data,
+        page: {
+            title: article.metadata.title
+        },
+        article: article
+    }));
+});
+</code></pre>
+
+<p>It's just a matter of iterating over the article array and making Nunjucks stamp out a page containing the article's data. As you might have noticed, I'm not writing out every line of code, just the most interesting parts. You can probably figure out how I use the same technique to create a home page, and a page for each tag in the tag array. Or you can look at the code in its entirety in the <a href="https://github.com/tlindstrom/tsl-notes">Github repository</a></p>
+
+<p>When you've compiled your HTML pages, the only thing remaining is to move over any static resources, like CSS, client-side javascript, images and other assets, and maybe do some transforms, like minification, uglification, SCSS preprocessing, what have you.</p>
+
+<h2>Summing Up</h2>
+
+<p>So that sums up the pattern on which this little website is built! I hope this article has managed to illustrate how manual static site generation is a quite simple process, and very flexible. This is just a simple blog, but by just tweaking the pattern a bit, we really could make anything.</p>
+
+<p>For example, we could make our compilation script read pages from a tree structure, and then automatically generate a page tree from this, along with a javascript-powered mega-menu for navigation. I might write about how to do that in the future. This stuff is a lot of fun.</p>
+</div>
+
+
+</body>
+</html>
