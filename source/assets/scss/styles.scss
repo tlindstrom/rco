@@ -72,12 +72,6 @@
 
 
 .example-sentence {
-    .chinese {
-        font-size: 0;
-        [data-word] {
-            font-size: 24px;
-        }
-    }
     .pinyin {
         
     }
@@ -85,4 +79,26 @@
         font-style: italic;
     }
 
+}
+
+
+.chinese-sentence {
+    font-size: 18px;
+    line-height: 1.5;
+    .inner {
+        font-size: 0;
+        [data-word] {
+            font-size: 18px;
+        }
+    }
+    &:hover {
+        background-color: rgb(210,100,205);
+    }
+
+    &.big {
+        font-size: 24px;
+        [data-word] {
+            font-size: 24px;
+        }
+    }
 }

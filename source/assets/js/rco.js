@@ -64,9 +64,9 @@ $(document).ready(function(){
             });
 
             // if parent element has 'data-sentence' attribute, make listening to sentence possible
-            if (wordElement.parent().get(0).hasAttribute("data-sentence")){
+            if (wordElement.parent().parent().get(0).hasAttribute("data-sentence")){
                 $('#word-dropdown #listen-to-sentence').off('click').on('click', function() {
-                    rco.pronounce(wordElement.parent().text());
+                    rco.pronounce(wordElement.parent().parent().text());
                     $('#word-dropdown').hide();
                 });
                 $('#word-dropdown #listen-to-sentence').show();
