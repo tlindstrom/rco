@@ -1,104 +1,16 @@
 @import 'normalize';
+
+$chinese-font-size: 21px;
+
+$highlight-color-1: #009DFF;
+$highlight-color-2: #9CD9FF;
+
+
+
+
 @import 'typography';
 @import 'layout';
+@import 'app';
 
 @import 'components/banner';
-
-
-
-
-[data-word]{
-    cursor: pointer;
-
-    &:hover {
-        background-color: yellow;
-    }
-}
-
-
-[data-highlight]{
-    cursor: pointer;
-
-    &.highlighted {
-        background-color: rgb(210,100,205);
-    }
-}
-
-#wordbox {
-    display: none;
-    position: absolute;
-    z-index: 9999999999;
-
-    border: 1px solid rgb(200,200,200);
-    box-shadow: 0px 1px 20px 0 rgba(0,0,0,0.1);
-    border-radius: 3px;
-    background-color: white;
-    padding: 20px;
-
-    text-align: center;
-    transform: translate(-50%, calc(-100% - 30px));
-}
-
-#word-dropdown {
-    display: none;
-
-    position: absolute;
-    z-index: 9999999999;
-
-    border: 1px solid rgb(200,200,200);
-    box-shadow: 0px 1px 20px 0 rgba(0,0,0,0.1);
-    border-radius: 3px;
-    background-color: white;
-
-    .choice {
-        display: block;
-        padding: 10px 20px;
-        cursor: pointer;
-
-        &:hover {
-            background-color: rgb(245,245,245);
-        }
-        &:hover, &:visited, &:link, &:active {
-            text-decoration: none;
-            color: inherit;
-        }
-    }
-}
-
-
-
-
-
-
-
-.example-sentence {
-    .pinyin {
-        
-    }
-    .meaning {
-        font-style: italic;
-    }
-
-}
-
-
-.chinese-sentence {
-    font-size: 18px;
-    line-height: 1.5;
-    .inner {
-        font-size: 0;
-        [data-word] {
-            font-size: 18px;
-        }
-    }
-    &:hover {
-        background-color: rgb(210,100,205);
-    }
-
-    &.big {
-        font-size: 24px;
-        [data-word] {
-            font-size: 24px;
-        }
-    }
-}
+@import 'components/card';

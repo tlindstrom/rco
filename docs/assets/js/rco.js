@@ -40,9 +40,9 @@ $(document).ready(function(){
             let pinyin  = $(this).attr('data-pinyin');
             let meaning = $(this).attr('data-meaning');
 
-            $('#wordbox').find("#chinese").html(chinese);
-            $('#wordbox').find("#pinyin").html(pinyin);
-            $('#wordbox').find("#meaning").html(meaning);
+            $('#wordbox').find(".chinese").html(chinese);
+            $('#wordbox').find(".pinyin").html(pinyin);
+            $('#wordbox').find(".meaning").html(meaning);
             $('#wordbox').show();
 
         });

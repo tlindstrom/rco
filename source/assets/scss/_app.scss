@@ -1,0 +1,98 @@
+[data-word]{
+    cursor: pointer;
+
+    &:hover {
+        background-color: $highlight-color-1;
+    }
+}
+
+
+[data-highlight]{
+    cursor: pointer;
+
+    &.highlighted {
+        background-color: $highlight-color-2;
+    }
+}
+
+#wordbox {
+    display: none;
+    position: absolute;
+    z-index: 9999999999;
+
+    border: 1px solid rgb(200,200,200);
+    box-shadow: 0px 1px 20px 0 rgba(0,0,0,0.1);
+    border-radius: 3px;
+    background-color: white;
+    padding: 20px;
+
+    text-align: center;
+    transform: translate(-50%, calc(-100% - 30px));
+
+    .chinese {
+        font-size: 21px;
+    }
+    .pinyin {
+        font-size: 18px;
+    }
+    .meaning {
+        font-size: 18px;
+        font-style: italic;
+    }
+}
+
+#word-dropdown {
+    display: none;
+
+    position: absolute;
+    z-index: 9999999999;
+
+    border: 1px solid rgb(200,200,200);
+    box-shadow: 0px 1px 20px 0 rgba(0,0,0,0.1);
+    border-radius: 3px;
+    background-color: white;
+
+    .choice {
+        display: block;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(245,245,245);
+        }
+        &:hover, &:visited, &:link, &:active {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+
+.example-sentence {
+    .pinyin {
+        
+    }
+    .meaning {
+        font-style: italic;
+    }
+
+}
+
+.chinese-sentence {
+    font-size: $chinese-font-size;
+    line-height: 1.64;
+    .inner {
+        font-size: 0;
+        [data-word] {
+            font-size: $chinese-font-size;
+        }
+    }
+    &:hover {
+        background-color: $highlight-color-2;
+    }
+}
+
+
+[data-word] {
+    font-size: $chinese-font-size;
+}

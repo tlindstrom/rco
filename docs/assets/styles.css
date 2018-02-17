@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -391,8 +392,9 @@ template {
   display: none; }
 
 body {
-  font-family: Catamaran;
-  font-size: 18px; }
+  font-family: Catamaran, Tahoma, Arial, Helvetica, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+  font-size: 16px;
+  font-weight: 300; }
 
 h1, h2, h3, h4, h5 {
   font-family: 'Spectral SC';
@@ -422,7 +424,7 @@ h5 {
   margin-top: 5px; }
 
 .container {
-  max-width: 1100px;
+  max-width: 1000px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
@@ -440,24 +442,15 @@ h5 {
     background-color: dodgerblue;
     color: white; }
 
-.banner {
-  color: white;
-  padding-top: 120px;
-  padding-bottom: 120px;
-  text-align: center;
-  background-color: gray;
-  background-size: cover;
-  background-position: center; }
-
 [data-word] {
   cursor: pointer; }
   [data-word]:hover {
-    background-color: yellow; }
+    background-color: #009DFF; }
 
 [data-highlight] {
   cursor: pointer; }
   [data-highlight].highlighted {
-    background-color: #d264cd; }
+    background-color: #9CD9FF; }
 
 #wordbox {
   display: none;
@@ -470,6 +463,13 @@ h5 {
   padding: 20px;
   text-align: center;
   transform: translate(-50%, calc(-100% - 30px)); }
+  #wordbox .chinese {
+    font-size: 21px; }
+  #wordbox .pinyin {
+    font-size: 18px; }
+  #wordbox .meaning {
+    font-size: 18px;
+    font-style: italic; }
 
 #word-dropdown {
   display: none;
@@ -493,15 +493,29 @@ h5 {
   font-style: italic; }
 
 .chinese-sentence {
-  font-size: 18px;
-  line-height: 1.5; }
+  font-size: 21px;
+  line-height: 1.64; }
   .chinese-sentence .inner {
     font-size: 0; }
     .chinese-sentence .inner [data-word] {
-      font-size: 18px; }
+      font-size: 21px; }
   .chinese-sentence:hover {
-    background-color: #d264cd; }
-  .chinese-sentence.big {
-    font-size: 24px; }
-    .chinese-sentence.big [data-word] {
-      font-size: 24px; }
+    background-color: #9CD9FF; }
+
+[data-word] {
+  font-size: 21px; }
+
+.banner {
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  text-align: center;
+  background-color: gray;
+  background-size: cover;
+  background-position: center; }
+
+.card {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4); }
