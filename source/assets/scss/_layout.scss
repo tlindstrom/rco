@@ -5,3 +5,20 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .logo {
+        padding: 10px;
+    }
+
+    #script-button {
+        cursor: pointer;
+        padding: 10px;
+        background-color: dodgerblue;
+        color: white;
+    }
+}

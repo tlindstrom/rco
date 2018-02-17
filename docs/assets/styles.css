@@ -427,6 +427,18 @@ h5 {
   margin-left: auto;
   margin-right: auto; }
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .navbar .logo {
+    padding: 10px; }
+  .navbar #script-button {
+    cursor: pointer;
+    padding: 10px;
+    background-color: dodgerblue;
+    color: white; }
+
 .banner {
   color: white;
   padding-top: 120px;
