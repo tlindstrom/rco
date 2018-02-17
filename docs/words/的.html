@@ -19,7 +19,8 @@
 </div>
 
 <div id="word-dropdown">
-    <div class="choice" id="listen">Listen</div>
+    <div class="choice" id="listen-to-word">Listen to word</div>
+    <div class="choice" id="listen-to-sentence">Listen to sentence</div>
     <a class="choice" id="learn-more">Learn More</a>
 </div>
 
@@ -60,7 +61,7 @@
     <h2>Nouns/noun phrases as modifiers</h2>
 
     <div class="example-sentence">
-        <div class="chinese">
+        <div data-sentence="" class="chinese">
             <span data-word="" data-meaning="mom" data-pinyin="māmā">媽媽</span>
             <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
             <span data-word="" data-meaning="clothes" data-pinyin="yīfú">衣服</span>
@@ -86,6 +87,9 @@
 
 
 
+<script>
+let PREFIX = '/rco';
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
 <script src="/rco/assets/js/rco.js"></script>

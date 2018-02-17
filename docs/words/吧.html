@@ -19,7 +19,8 @@
 </div>
 
 <div id="word-dropdown">
-    <div class="choice" id="listen">Listen</div>
+    <div class="choice" id="listen-to-word">Listen to word</div>
+    <div class="choice" id="listen-to-sentence">Listen to sentence</div>
     <a class="choice" id="learn-more">Learn More</a>
 </div>
 
@@ -57,7 +58,7 @@
     <p><strong>command + <span data-word="" data-meaning="(tone softening particle)" data-pinyin="ba" data-wordpage="吧">吧</span></strong></p>
 
     <div class="example-sentence">
-        <div class="chinese">
+        <div data-sentence="" class="chinese">
             <span data-word="" data-meaning="weather" data-pinyin="tiānqì">天氣</span>
             <span data-word="" data-meaning="very" data-pinyin="hěn">很</span>
             <span data-word="" data-meaning="hot" data-pinyin="rè">熱</span>
@@ -80,7 +81,7 @@
     <table style="width: 100%;">
         <tbody><tr>
             <td>
-                <span data-highlight="1" class="chinese">
+                <span data-sentence="" data-highlight="1" class="chinese">
                     <span data-word="" data-meaning="weather" data-pinyin="tiānqì">天氣</span>
                     <span data-word="" data-meaning="very" data-pinyin="hěn">很</span>
                     <span data-word="" data-meaning="hot" data-pinyin="rè">熱</span>
@@ -92,7 +93,7 @@
                     <span data-word="" data-meaning="(tone softening particle)" data-pinyin="ba" data-wordpage="吧">吧</span>
                     <span data-word="" data-meaning="" data-pinyin=".">。</span>
                 </span>
-                <span data-highlight="2" class="chinese">
+                <span data-sentence="" data-highlight="2" class="chinese">
                     <span data-word="" data-meaning="weather" data-pinyin="tiānqì">天氣</span>
                     <span data-word="" data-meaning="very" data-pinyin="hěn">很</span>
                     <span data-word="" data-meaning="hot" data-pinyin="rè">熱</span>
@@ -113,7 +114,7 @@
 
         <tr>
             <td>
-                <span data-highlight="3" class="chinese">
+                <span data-sentence="" data-highlight="3" class="chinese">
                     <span data-word="" data-meaning="weather" data-pinyin="tiānqì">天氣</span>
                     <span data-word="" data-meaning="very" data-pinyin="hěn">很</span>
                     <span data-word="" data-meaning="hot" data-pinyin="rè">熱</span>
@@ -125,7 +126,7 @@
                     <span data-word="" data-meaning="(tone softening particle)" data-pinyin="ba" data-wordpage="吧">吧</span>
                     <span data-word="" data-meaning="" data-pinyin=".">。</span>
                 </span>
-                <span data-highlight="4" class="chinese">
+                <span data-sentence="" data-highlight="4" class="chinese">
                     <span data-word="" data-meaning="weather" data-pinyin="tiānqì">天氣</span>
                     <span data-word="" data-meaning="very" data-pinyin="hěn">很</span>
                     <span data-word="" data-meaning="hot" data-pinyin="rè">熱</span>
@@ -161,6 +162,9 @@
 
 
 
+<script>
+let PREFIX = '/rco';
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
 <script src="/rco/assets/js/rco.js"></script>
