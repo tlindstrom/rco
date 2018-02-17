@@ -23,12 +23,34 @@ $('[data-word]').each(function(){
     });
 
     $(this).mouseleave(function(){
-        console.log($(this).attr('data-pinyin'));
         $('#wordbox').hide();
     });
+
+    $(this).contextmenu(function(){
+        let wordElement = $(this);
+
+        $('#word-dropdown').css({ left: event.pageX-5, top: event.pageY-5 });
+        $('#word-dropdown').show();
+
+        $('#word-dropdown #listen').off('click').on('click', function() {
+            rco.pronounce(wordElement.html());
+            $('#word-dropdown').hide();
+        });
+
+        if ($(this).attr('data-wordpage')){
+            $('#word-dropdown #learn-more').attr('href', '/rco/words/' + $(this).attr('data-wordpage') + '.html');
+            $('#word-dropdown #learn-more').show();
+        } else {
+            $('#word-dropdown #learn-more').hide();
+        }
+
+        // return false blocks the standard context menu
+        return false;
+    });
 });
-
-
+$(document).click(function() {
+    $('#word-dropdown').hide();
+});
 
 $('[data-highlight]').each(function(){
     let highlightId = $(this).attr('data-highlight');
@@ -47,7 +69,23 @@ $('[data-highlight]').each(function(){
 
 });
 
-$('body').mousemove(function( event ) {
-  $('#wordbox').css({left: event.pageX+ 3, top: event.pageY+ 3});
+$(document).mousemove(function( event ) {
+  $('#wordbox').css({left: event.pageX, top: event.pageY });
 });
 
+
+
+
+
+
+let rco = {
+
+
+    // pronounce a Chinese phrase using the browser text to speech API
+    pronounce(phrase) {
+        var msg = new SpeechSynthesisUtterance(phrase);
+        msg.lang = 'zh-CH';
+        msg.rate = 0.8
+        window.speechSynthesis.speak(msg);
+    }
+}

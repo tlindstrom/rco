@@ -1,5 +1,4 @@
-<html>
-<head>
+<html><head>
 <title>Proxying to Microservices - Read Chinese Online</title>
 <link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
 
@@ -19,6 +18,11 @@
     <div id="meaning"></div>
 </div>
 
+<div id="word-dropdown">
+    <div class="choice" id="listen">Listen</div>
+    <a class="choice" id="learn-more">Learn More</a>
+</div>
+
 <div style="background-color: rgb(240,240,240); padding-top: 10px; padding-bottom: 10px;">
     <div class="container">
         <a href="/rco/"><strong>中文</strong> Read Chinese Online</a>
@@ -33,7 +37,7 @@
     
 
     <p>
-        <strong>Date:</strong> 2017-12-19 &nbsp;&nbsp;&nbsp;
+        <strong>Date:</strong> 2017-12-19    
         <strong>Tags:</strong> <a href="/rco/tags/docker.html">docker</a> <a href="/rco/tags/nginx.html">nginx</a> <a href="/rco/tags/traefik.html">traefik</a> <a href="/rco/tags/microservices.html">microservices</a> 
     </p>
     <hr>
@@ -78,7 +82,7 @@ The <strong>resolver</strong> directive is necessary for this to work - it speci
 
 <p>This is starting to look like something, but there is one final issue: The proxy_pass directive acts a bit funny when fed a variable like this - it will no longer send the whole request URI through to the proxied endpoint. So if you made a request to <strong>thesite.com/some-service/products?id=p99</strong>, everything after <strong>thesite.com/some-service</strong> would be stripped off the request to the Docker container, and you'd get back a result from the root path. This is obviously a dealbreaker!
 
-<p>Luckily, we can take care of this with a bit of regex magic:</p>
+</p><p>Luckily, we can take care of this with a bit of regex magic:</p>
 
 <pre><code class="language-nginx">
 location ~ ^/some-path(/(.*))?$ {
@@ -136,5 +140,5 @@ services:
 <script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
 <script src="/rco/assets/js/rco.js"></script>
 
-</body>
-</html>
+
+</body></html>

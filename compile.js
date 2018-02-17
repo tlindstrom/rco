@@ -2,6 +2,9 @@ let fs = require('fs-extra');
 let sass = require('node-sass');
 let rimraf = require('rimraf');
 let nunjucks = require('nunjucks');
+let cheerio = require('cheerio');
+
+let hskVocabulary = require('./source/misc/hsk-vocabulary.json');
 
 let data = {
     prefix: '/rco',
@@ -9,16 +12,6 @@ let data = {
     articles: [],
     wordPages: []
 };
-
-
-
-let processPage = function(page) {
-
-
-    return page;
-}
-
-
 
 
 
@@ -44,6 +37,44 @@ fs.readdirSync(__dirname + '/source/content/word-pages').forEach(x => {
         filename: x
     });
 });
+
+
+
+
+// function that post-processes the rendered HTML
+let processPage = function(page) {
+
+    let $ = cheerio.load(page, { decodeEntities: false });
+
+    // if words don't have details, try to fill them in from the vocabulary list
+    $('[data-word]').each(function() {
+
+        //let wordFromList = hskVocabulary.find(x => x.Traditional == $(this).html().trim());
+        
+        /*
+        if (wordFromList){
+            if (!$(this).attr('data-meaning')) $(this).attr('data-meaning', wordFromList.keyword);
+            if (!$(this).attr('data-pinyin'))  $(this).attr('data-pinyin',  wordFromList.pinyin);
+        }
+        */
+
+
+        // if it exists, add word page
+        let wordpage = data.wordPages.find(x => x.metadata.title == $(this).html());
+        if (wordpage) $(this).attr('data-wordpage', wordpage.metadata.title);
+
+    });
+    page = $.html({ decodeEntities: false });
+
+    return page;
+}
+
+
+
+
+
+
+
 
 // render pages
 console.log('\n--- RENDERING PAGES ---\n');

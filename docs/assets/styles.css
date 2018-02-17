@@ -458,6 +458,24 @@ h5 {
   text-align: center;
   transform: translate(-50%, calc(-100% - 30px)); }
 
+#word-dropdown {
+  display: none;
+  position: absolute;
+  z-index: 9999999999;
+  border: 1px solid #c8c8c8;
+  box-shadow: 0px 1px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  background-color: white; }
+  #word-dropdown .choice {
+    display: block;
+    padding: 10px 20px;
+    cursor: pointer; }
+    #word-dropdown .choice:hover {
+      background-color: whitesmoke; }
+    #word-dropdown .choice:hover, #word-dropdown .choice:visited, #word-dropdown .choice:link, #word-dropdown .choice:active {
+      text-decoration: none;
+      color: inherit; }
+
 .example-sentence .chinese {
   font-size: 0; }
   .example-sentence .chinese [data-word] {
