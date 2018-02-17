@@ -391,7 +391,8 @@ template {
   display: none; }
 
 body {
-  font-family: Catamaran; }
+  font-family: Catamaran;
+  font-size: 18px; }
 
 h1, h2, h3, h4, h5 {
   font-family: 'Spectral SC';
@@ -421,7 +422,7 @@ h5 {
   margin-top: 5px; }
 
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
@@ -488,10 +489,19 @@ h5 {
       text-decoration: none;
       color: inherit; }
 
-.example-sentence .chinese {
-  font-size: 0; }
-  .example-sentence .chinese [data-word] {
-    font-size: 24px; }
-
 .example-sentence .meaning {
   font-style: italic; }
+
+.chinese-sentence {
+  font-size: 18px;
+  line-height: 1.5; }
+  .chinese-sentence .inner {
+    font-size: 0; }
+    .chinese-sentence .inner [data-word] {
+      font-size: 18px; }
+  .chinese-sentence:hover {
+    background-color: #d264cd; }
+  .chinese-sentence.big {
+    font-size: 24px; }
+    .chinese-sentence.big [data-word] {
+      font-size: 24px; }
