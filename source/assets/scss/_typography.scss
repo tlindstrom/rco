@@ -36,3 +36,20 @@ h5 {
     font-size: 20px;
     margin-top: 5px;
 }
+
+
+table.table {
+    th, td {
+        
+        border: 3px solid transparent;
+        padding: 3px 15px;
+    }
+
+    td {
+        background-color: rgb(225,225,225);
+    }
+    th {
+        background-color: rgb(205,205,205);
+        text-align: left;
+    }
+}
