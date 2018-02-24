@@ -1,11 +1,11 @@
 {
-    "title": "Lexicon",
+    "title": "Parallel Texts",
     "description": "A test article about the word 吧",
     "hskLevel": 2,
     "tags": ["grammar"],
 
-    allWords: () => {
-        return data.content.words._pages
+    allTexts: () => {
+        return data.content.texts._pages
         .filter(x => x.filename !== 'index.html');
     }
 }
@@ -15,10 +15,10 @@
 {% block content %}
 
 <div class="container">
-    This is the word page archive.
+    <h1>Parallel Texts</h1>
 
-    {% for word in page.allWords() %}
-        <a href="{{word.url}}">{{ word.metadata.title }}</a>
+    {% for text in page.allTexts() %}
+        <a href="{{text.url}}">{{ text.metadata.title }}</a>
     {% endfor %}
 </div>
 

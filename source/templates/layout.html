@@ -35,12 +35,35 @@
         </div>
     </div>
 </div>
+<div style="padding: 5px 0; background-color: rgb(240,240,240);">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background: none; padding: 0; margin: 0;">
+                {% for x in page.breadcrumbs %}
+                <li class="breadcrumb-item {% if x.current==true %}active{% endif %}">
+                    {% if x.current==true %}
+                        {{x.title}}
+                    {% else %}
+                        <a href="{{x.url}}">{{x.title}}</a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+</div>
 
 {% block content %}{% endblock %}
 
 
-<footer>
-<p>&copy; Read Chinese Online 2017</p>
+<footer style="background-color: rgb(230,230,230);padding-top: 20px; padding-bottom: 20px; margin-top: 20px;">
+    <div class="container">
+        <p>&copy; Read Chinese Online 2017</p>
+
+        <h2>Support us!</h2>
+        <p>We'd love to keep this website a free product forever. Please consider supporting us!</p>
+        <a href="https://patreon.com/readchineseonline">Support us on Patreon</a>
+    </div>
 </footer>
 
 

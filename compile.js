@@ -13,22 +13,38 @@ let data = {
 
 
 
+let deepCopy = function(array){
+    return array.map(a => Object.assign({}, a));
+}
+
+
+
 // load data
 console.log('\n--- LOADING DATA ---\n');
 
-let readContent = function(dir, outputUrl) {
+let readContent = function(dir, outputUrl, breadcrumbs) {
 
-    console.log("DIR:");
-    console.log(dir);
+    console.log("LOADING DIRECTORY:", dir);
     
     let node = {
         _url: outputUrl,
         _pages: []
     }
+
+    // if index.html exists, append it to the breadcrumbs
+    let indexPath = path.join(dir, 'index.html');
+    if (fs.existsSync(indexPath)) {
+        let file = fs.readFileSync(indexPath, 'utf8').split('---');
+        breadcrumbs.push({
+            title: eval('('+ file[0] +')').title,
+            url: outputUrl + '/' + 'index.html',
+            current: false
+        });
+    }
     
     fs.readdirSync(dir).forEach(x => {
         let fullPath = path.join(dir, x);
-        if (fs.lstatSync(fullPath).isDirectory()) node[x] = readContent(fullPath, outputUrl+'/'+x);
+        if (fs.lstatSync(fullPath).isDirectory()) node[x] = readContent(fullPath, outputUrl+'/'+x, deepCopy(breadcrumbs));
         else {
             let file = fs.readFileSync(fullPath, 'utf8').split('---');
 
@@ -38,12 +54,27 @@ let readContent = function(dir, outputUrl) {
                 x = x.split('_')[1];
             }
 
-            node._pages.push({
+            let newNode = {
                 metadata: eval('('+file.shift()+')'),
                 body: file.join('---'),
                 filename: x,
-                url: outputUrl+'/'+x
-            });
+                url: outputUrl+'/'+x,
+            }
+            
+            let bc = deepCopy(breadcrumbs);
+            if (x !== 'index.html'){
+                bc.push({
+                    title: newNode.metadata.title,
+                    url: newNode.url,
+                    current: false
+                });
+            }
+            bc[bc.length-1].current = true;
+            newNode.metadata.breadcrumbs = bc;
+
+            node._pages.push(newNode);
+
+            
         }
     });
 
@@ -52,7 +83,8 @@ let readContent = function(dir, outputUrl) {
 
 data.content = readContent(
     path.join(__dirname, 'source', 'content'),
-    data.prefix
+    data.prefix,
+    []
 );
 
 
