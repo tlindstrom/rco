@@ -1,3 +1,4 @@
+let path = require('path');
 let fs = require('fs-extra');
 let sass = require('node-sass');
 let rimraf = require('rimraf');
@@ -8,9 +9,6 @@ let hskVocabulary = require('./source/misc/hsk-vocabulary.json');
 
 let data = {
     prefix: '/rco',
-
-    articles: [],
-    wordPages: []
 };
 
 
@@ -18,25 +16,49 @@ let data = {
 // load data
 console.log('\n--- LOADING DATA ---\n');
 
-fs.readdirSync(__dirname + '/source/content/articles').forEach(x => {
-    console.log('READING FILE: ' + __dirname + '/source/content/articles/' + x);
-    let file = fs.readFileSync(__dirname + '/source/content/articles/' + x, 'utf8').split('---');
-    data.articles.push({
-        metadata: JSON.parse(file.shift()),
-        body: file.join('---'),
-        filename: x
-    });
-});
+let readContent = function(dir, outputUrl) {
 
-fs.readdirSync(__dirname + '/source/content/word-pages').forEach(x => {
-    console.log('READING FILE: ' + __dirname + '/source/content/word-pages/' + x);
-    let file = fs.readFileSync(__dirname + '/source/content/word-pages/' + x, 'utf8').split('---');
-    data.wordPages.push({
-        metadata: JSON.parse(file.shift()),
-        body: file.join('---'),
-        filename: x
+    console.log("DIR:");
+    console.log(dir);
+    
+    let node = {
+        _url: outputUrl,
+        _pages: []
+    }
+    
+    fs.readdirSync(dir).forEach(x => {
+        let fullPath = path.join(dir, x);
+        if (fs.lstatSync(fullPath).isDirectory()) node[x] = readContent(fullPath, outputUrl+'/'+x);
+        else {
+            let file = fs.readFileSync(fullPath, 'utf8').split('---');
+
+            let priority = 99999;
+            if (x.match(/^[0-9]+_.+$/)){
+                priority = Number(x.split('_')[0]);
+                x = x.split('_')[1];
+            }
+
+            node._pages.push({
+                metadata: eval('('+file.shift()+')'),
+                body: file.join('---'),
+                filename: x,
+                url: outputUrl+'/'+x
+            });
+        }
     });
-});
+
+    return node;
+}
+
+data.content = readContent(
+    path.join(__dirname, 'source', 'content'),
+    data.urlPrefix
+);
+
+
+
+
+
 
 
 
@@ -60,7 +82,7 @@ let processPage = function(page) {
 
 
         // if it exists, add word page
-        let wordpage = data.wordPages.find(x => x.metadata.title == $(this).html());
+        let wordpage = data.content['word-pages']._pages.find(x => x.metadata.title == $(this).html());
         if (wordpage) $(this).attr('data-wordpage', wordpage.metadata.title);
 
     });
@@ -84,38 +106,29 @@ console.log('DELETING AND RECREATING dist DIRECTORY');
 rimraf.sync(__dirname + '/dist');
 fs.mkdirSync(__dirname + '/dist');
 
-fs.writeFileSync(__dirname + '/dist/index.html', processPage(nunjucks.render('home.html', {
-    data: data,
-    page: {
-        title: 'Home'
-    }
-})));
-
-fs.mkdirSync(__dirname + '/dist/articles');
-data.articles.forEach(article => {
-    console.log('WRITING FILE: ' + __dirname + '/dist/articles/' + article.filename);
-    fs.writeFileSync(__dirname + '/dist/articles/' + article.filename, processPage(nunjucks.render('article.html', {
-        data: data,
-        page: {
-            title: article.metadata.title
-        },
-        article: article
-    })));
-});
-
-fs.mkdirSync(__dirname + '/dist/words');
-data.wordPages.forEach(word => {
-    console.log('WRITING FILE: ' + __dirname + '/dist/words/' + word.filename);
-    fs.writeFileSync(__dirname + '/dist/words/' + word.filename, processPage(nunjucks.render('word.html', {
-        data: data,
-        page: {
-            title: word.metadata.title
-        },
-        word: word
-    })));
-});
 
 
+
+// render page tree
+let renderPages = function(node, dir) {
+
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+
+    node._pages.forEach(x => {
+        console.log('WRITING FILE: ' + path.join(dir, x.filename));
+        fs.writeFileSync(path.join(dir, x.filename), processPage(nunjucks.renderString(x.body, {
+            data: data,
+            layout: {
+                title: x.metadata.title
+            },
+            page: x.metadata
+        })));
+    });
+    Object.keys(node).forEach(x => {
+        if (x[0] !== '_') renderPages(node[x], path.join(dir, x));
+    });
+}
+renderPages(data.content, path.join(__dirname, 'dist/'));
 
 
 
@@ -136,4 +149,14 @@ let renderedCss = sass.renderSync({
 }).css;
 fs.writeFileSync("./dist/assets/styles.css", renderedCss);
 
-console.log("\n--- COMPILATION DONE! ---\n");
+
+console.log("\n--- COMPILATION DONE ---\n");
+
+console.log("\n--- WRITING DEBUG DATA ---\n");
+
+// create debug folder
+rimraf.sync(__dirname + '/debug');
+fs.mkdirSync(__dirname + '/debug');
+fs.writeFileSync(path.join(__dirname, 'debug', 'data.json'), JSON.stringify(data.content, false, 4));
+
+console.log("\n--- ALL DONE! ---\n");

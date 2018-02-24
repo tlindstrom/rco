@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
  
-    <title>{{ page.title }} - Read Chinese Online</title>
+    <title>{{ layout.title }} - Read Chinese Online</title>
     <link rel="stylesheet" type="text/css" href="{{data.prefix}}/assets/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 </head>
@@ -39,24 +39,16 @@
 {% block content %}{% endblock %}
 
 
+<footer>
+<p>&copy; Read Chinese Online 2017</p>
+</footer>
 
 
-
-
-
-
-      <hr>
-
-      <footer>
-        <p>&copy; Read Chinese Online 2017</p>
-      </footer>
-    </div> <!-- /container -->
-
-    <script>
-    let PREFIX = '{{data.prefix}}';
-    </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="{{data.prefix}}/assets/js/tongwen/tongwen-ts.js"></script>
-    <script src="{{data.prefix}}/assets/js/rco.js"></script>
-  </body>
+<script>
+let PREFIX = '{{data.prefix}}';
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="{{data.prefix}}/assets/js/tongwen/tongwen-ts.js"></script>
+<script src="{{data.prefix}}/assets/js/rco.js"></script>
+</body>
 </html>
