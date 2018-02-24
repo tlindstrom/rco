@@ -6428,14 +6428,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Raleway; }
 
 .top-bar {
-  background-color: #e6e6e6;
-  color: white; }
+  background-color: white; }
   .top-bar .inner {
     display: flex;
     flex-direction: row;
     justify-content: space-between; }
     .top-bar .inner .logo {
-      color: #1e1e1e; }
+      color: #1e1e1e;
+      margin-left: -10px; }
       .top-bar .inner .logo:hover, .top-bar .inner .logo:visited, .top-bar .inner .logo:link, .top-bar .inner .logo:active {
         text-decoration: none; }
       .top-bar .inner .logo .brand {
