@@ -14,7 +14,7 @@
     <div class="container">
         <h1 class="display-3" style="margin: 20px 0; line-height: 1;">The Best Way to Learn Chinese</h1>
         <p>Welcome to Read Chinese Online! Our website provides a complete framework for learning the Chinese language. And hey - it's free! ;)</p>
-        <p><a class="btn btn-primary btn-lg" href="/rco/pages/courses/index.html" role="button">Start Learning Now &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/rco/courses/index.html" role="button">Start Learning Now &raquo;</a></p>
     </div>
 </div>
 
@@ -41,56 +41,42 @@
         </div>
     </div>
 
-    
-    <div class="media">
-        <img class="mr-3" src="http://via.placeholder.com/200x200" alt="Generic placeholder image">
-        <div class="media-body">
-            <h5 class="mt-0">Courses</h5>
-            The courses teach everything from the very basics to advanced grammar and idioms.
-        </div>
-    </div>
-
-    <div class="media">
-        <img class="mr-3" src="http://via.placeholder.com/200x200" alt="Generic placeholder image">
-        <div class="media-body">
-            <h5 class="mt-0">Parallel Texts</h5>
-            The courses teach everything from the very basics to advanced grammar and idioms.
-        </div>
-    </div>
-
-</div>
-
-<div style="background-color: rgb(240,240,240); padding-top: 40px; padding-bottom: 40px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Word Pages</h5>
-                        <p class="card-text">
-                            {% for x in data.content['word-pages']._pages %}
-                                <a href="{{data.prefix}}/words/{{x.filename}}">{{x.metadata.title}}</a><br> 
-                            {% endfor %}
-                        </p>
-                        <a href="#" class="btn btn-primary">Go to the Lexicon</a>
-                    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Courses</h5>
+                    <p class="card-text">
+                        Bla bla courses bla
+                    </p>
+                    <a href="{{data.prefix}}/courses" class="btn btn-primary">Go to the Courses</a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Articles</h5>
-                        <p class="card-text">
-                            {% for x in data.content['articles']._pages %}
-                            <a href="{{data.prefix}}/articles/{{x.filename}}">{{x.metadata.date}}: {{x.metadata.title}}</a><br>
-                            {% endfor %}
-                        </p>
-                        <a href="#" class="btn btn-primary">See all Articles</a>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Parallel texts</h5>
+                    <p class="card-text">
+                        These are the parallel texts, great for reading practice, bla bla bla
+                    </p>
+                    <a href="{{data.prefix}}/texts" class="btn btn-primary">Go to the Lexicon</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lexicon</h5>
+                    <p class="card-text">
+                        This is the lexicon, bla bla bla
+                    </p>
+                    <a href="{{data.prefix}}/words" class="btn btn-primary">Go to the Lexicon</a>
                 </div>
             </div>
         </div>
     </div>
+
 
 </div>
 

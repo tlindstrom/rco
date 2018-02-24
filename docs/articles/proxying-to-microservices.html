@@ -1,50 +1,4 @@
-<html><head>
-<title>Proxying to Microservices - Read Chinese Online</title>
-<link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
-</head>
-<!-- body is hidden until initial front end transforms are applied -->
-<body style="display: none;">
-
-<div id="wordbox">
-    <div class="chinese"></div>
-    <div class="pinyin"></div>
-    <div class="meaning"></div>
-</div>
-
-<div id="word-dropdown">
-    <div class="choice" id="listen-to-word">Listen to word</div>
-    <div class="choice" id="listen-to-sentence">Listen to sentence</div>
-    <a class="choice" id="learn-more">Learn More</a>
-</div>
-
-<div style="background-color: rgb(240,240,240);">
-    <div class="container">
-        <div class="navbar">
-            <a class="logo" href="/rco/"><strong>中文</strong> Read Chinese Online</a>
-            <span id="script-button">TRADITIONAL</span>
-        </div>
-    </div>
-</div>
-
-<div style="background-color: rgb(230,230,230); padding: 20px 0;">
-
-
-<div class="container">
-    <h1 class="article-title">Proxying to Microservices</h1>
-    <h2 class="article-description">How to set up a reverse proxy for Docker microservices</h2>
-    
-
-    <p>
-        <strong>Date:</strong> 2017-12-19    
-        <strong>Tags:</strong> <a href="/rco/tags/docker.html">docker</a> <a href="/rco/tags/nginx.html">nginx</a> <a href="/rco/tags/traefik.html">traefik</a> <a href="/rco/tags/microservices.html">microservices</a> 
-    </p>
-    <hr>
-
-</div>
-<div class="container">
-    
-
-<p>Docker makes it really easy to build and deploy your application as a set of microservices, and send data back and forth between these. If they are on the same Docker <strong>network</strong>, they can all talk to each other directly, since the containers are automatically configured with host entries for the names of the other containers on their networks.</p>
+<html><head></head><body><p>Docker makes it really easy to build and deploy your application as a set of microservices, and send data back and forth between these. If they are on the same Docker <strong>network</strong>, they can all talk to each other directly, since the containers are automatically configured with host entries for the names of the other containers on their networks.</p>
 
 <p>But what if you want the various microservices to have endpoints to the Internet? For example, if you have modern client side front end such as an Angular application, or a mobile app, you will need this. The front end app, running on the user's computer, will make HTTP requests to your various back end microservices, and as such you will need endpoints for it to connect to. Ideally with some kind of nice, semantic address, such as <strong>thesite.com/themicroservice</strong>, or <strong>themicroservice.thesite.com</strong>. Now let's look at some ways to go about this.</p>
 
@@ -129,18 +83,4 @@ services:
 
 <p>Notice how the Træfik service does not need be configured to look for the other services at all. The services themselves can take hand of their own routing, simply by specifying a label on the container. Træfik will read these labels and update its proxying accordingly as services come and go (there's a bunch of different rule types to choose from, you can f.ex. easily deploy the microservices at subdomains instead of subpaths of the URL).</p>
 
-<p>This is very powerful. The lack of need for centralized configuration leads to a really elegant and decoupled architecture. Træfik can also renew your SSL certificates automatically! Træfik is awesome.</p>
-</div>
-
-
-</div>
-
-<script>
-let PREFIX = '/rco';
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
-<script src="/rco/assets/js/rco.js"></script>
-
-
-</body></html>
+<p>This is very powerful. The lack of need for centralized configuration leads to a really elegant and decoupled architecture. Træfik can also renew your SSL certificates automatically! Træfik is awesome.</p></body></html>

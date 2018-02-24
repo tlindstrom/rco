@@ -1,0 +1,24 @@
+{
+    "title": "Lexicon",
+    "description": "A test article about the word 吧",
+    "hskLevel": 2,
+    "tags": ["grammar"],
+
+    allWords: () => {
+        return data.content.words._pages;
+    }
+}
+---
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    This is the word page archive.
+
+    {% for word in page.allWords() %}
+        <a href="{{word.url}}">{{ word.metadata.title }}</a>
+    {% endfor %}
+</div>
+
+{% endblock %}

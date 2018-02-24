@@ -52,8 +52,10 @@ let readContent = function(dir, outputUrl) {
 
 data.content = readContent(
     path.join(__dirname, 'source', 'content'),
-    data.urlPrefix
+    data.prefix
 );
+
+
 
 
 
@@ -82,7 +84,7 @@ let processPage = function(page) {
 
 
         // if it exists, add word page
-        let wordpage = data.content['word-pages']._pages.find(x => x.metadata.title == $(this).html());
+        let wordpage = data.content['words']._pages.find(x => x.metadata.title == $(this).html());
         if (wordpage) $(this).attr('data-wordpage', wordpage.metadata.title);
 
     });
@@ -118,9 +120,6 @@ let renderPages = function(node, dir) {
         console.log('WRITING FILE: ' + path.join(dir, x.filename));
         fs.writeFileSync(path.join(dir, x.filename), processPage(nunjucks.renderString(x.body, {
             data: data,
-            layout: {
-                title: x.metadata.title
-            },
             page: x.metadata
         })));
     });

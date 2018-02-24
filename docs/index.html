@@ -1,7 +1,14 @@
-<html><head>
-<title>Home - Read Chinese Online</title>
-<link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ 
+    <title>Home - Read Chinese Online</title>
+    <link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
+
+
 <!-- body is hidden until initial front end transforms are applied -->
 <body style="display: none;">
 
@@ -17,64 +24,95 @@
     <a class="choice" id="learn-more">Learn More</a>
 </div>
 
-<div style="background-color: rgb(240,240,240);">
+<div class="top-bar">
     <div class="container">
-        <div class="navbar">
-            <a class="logo" href="/rco/"><strong>中文</strong> Read Chinese Online</a>
-            <span id="script-button">TRADITIONAL</span>
+        <div class="inner">
+            <a class="btn btn-link logo" href="/rco/"><strong class="brand">中文</strong> Read Chinese Online</a>
+            <button class="btn btn-primary" style="border-radius: 0;" id="script-button">Traditional</button>
         </div>
     </div>
 </div>
 
-<div style="background-color: rgb(230,230,230); padding: 20px 0;">
 
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron" style="background-color: rgb(30,30,30); background: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), url(/rco/assets/img/photos/chinese-street.jpg); background-size: cover; background-position: center; color: white; text-align: center; border-radius: 0;">
+    <div class="container">
+        <h1 class="display-3" style="margin: 20px 0; line-height: 1;">The Best Way to Learn Chinese</h1>
+        <p>Welcome to Read Chinese Online! Our website provides a complete framework for learning the Chinese language. And hey - it's free! ;)</p>
+        <p><a class="btn btn-primary btn-lg" href="/rco/courses/index.html" role="button">Start Learning Now »</a></p>
+    </div>
+</div>
+
+     
 
 <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-3">
+            <h4><i class="fa fa-fw fa-book"></i> HSK Framework</h4>
+            <p>Our material is based on the official HSK curriculum. If you're studying for an HSK exam, you've come to the right place!</p> 
+        </div>
+        <div class="col-md-3">
+            <h4><i class="fa fa-fw fa-newspaper-o"></i> Both Scripts</h4>
+            <p>Are you learning simplified or traditional characters? Doesn't matter which! Click the button at the top right to switch between the two scripts.</p> 
+        </div>
+        <div class="col-md-3">
+            <h4><i class="fa fa-fw fa-share"></i> Word Pages</h4>
+            <p>See a word you don't know? Right click it, and select "Learn More" - you'll be taken to a page explaining the word!</p>
+        </div>
+        <div class="col-md-3">
+            <h4><i class="fa fa-fw fa-volume-up"></i> There's Sound</h4>
+            <p>Listen to the pronounciation of any word or sentence - just right click a word and select your option from the context menu.</p>
+        </div>
+    </div>
 
-    <h1 class="article-title">Read Chinese Online</h1>
-    <h2 class="article-description">
-        Hello! This is the new, static RCO.
-    </h2>
-    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Courses</h5>
+                    <p class="card-text">
+                        Bla bla courses bla
+                    </p>
+                    <a href="/rco/courses" class="btn btn-primary">Go to the Courses</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Parallel texts</h5>
+                    <p class="card-text">
+                        These are the parallel texts, great for reading practice, bla bla bla
+                    </p>
+                    <a href="/rco/texts" class="btn btn-primary">Go to the Lexicon</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lexicon</h5>
+                    <p class="card-text">
+                        This is the lexicon, bla bla bla
+                    </p>
+                    <a href="/rco/words" class="btn btn-primary">Go to the Lexicon</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h2>Articles</h2>
-    
-        <a href="/rco/articles/linux-command-line-tips.html">2017-12-20: Linux Command Line Tips</a><br>
-    
-        <a href="/rco/articles/mongodb-administration.html">2018-02-01: MongoDB Administration Notes</a><br>
-    
-        <a href="/rco/articles/proxying-to-microservices.html">2017-12-19: Proxying to Microservices</a><br>
-    
-        <a href="/rco/articles/simple-extraction-of-json-data.html">2017-12-16: JSON Data Extractor</a><br>
-    
-        <a href="/rco/articles/software-licenses.html">2017-12-16: Software Licenses</a><br>
-    
-        <a href="/rco/articles/static-site-generation-without-a-framework.html">2017-12-17: Static Site Generation without a Framework</a><br>
-    
-        <a href="/rco/articles/吧.html">2017-12-20: 吧</a><br>
-    
-
-    <h2>Words</h2>
-    
-        <a href="/rco/words/chapter1.html">Introductory Chinese: Chapter 1 - Meeting New Friends and Introducing Yourself</a><br>
-    
-        <a href="/rco/words/吧.html">吧</a><br>
-    
-        <a href="/rco/words/想.html">想</a><br>
-    
-        <a href="/rco/words/我.html">我</a><br>
-    
-        <a href="/rco/words/是.html">是</a><br>
-    
-        <a href="/rco/words/最.html">最</a><br>
-    
-        <a href="/rco/words/的.html">的</a><br>
-    
 
 </div>
 
 
-</div>
+
+
+<footer>
+<p>© Read Chinese Online 2017</p>
+</footer>
+
 
 <script>
 let PREFIX = '/rco';

@@ -1,0 +1,31 @@
+{
+    "title": "Courses",
+    "description": "最 is a cool word",
+    "hskLevel": 1,
+    "tags": ["grammar"]
+}
+---
+
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="container">
+
+    <h1>Courses</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{data.prefix}}/assets/img/photos/chinese-street.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">Chinese for Beginners</h5>
+                    <p class="card-text">Learn Chinese from the beginning! This course teaches you basic grammar and important vocabulary.</p>
+                    <a href="{{data.prefix}}/courses/chinese-for-beginners/chapter1.html" class="btn btn-primary">Go to the Course</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
