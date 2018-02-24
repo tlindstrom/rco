@@ -1,3 +1,4 @@
+@import 'bootstrap-4.0.0/bootstrap';
 @import 'normalize';
 
 $chinese-font-size: 21px;
@@ -5,12 +6,49 @@ $chinese-font-size: 21px;
 $highlight-color-1: #009DFF;
 $highlight-color-2: #9CD9FF;
 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Raleway');
+body{
+    font-family: 'Source Sans Pro', Tahoma, Arial, Helvetica, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Raleway;
+}
 
 
+.top-bar {
+    background-color: rgb(230,230,230);
+    color: white;
 
+    .inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .logo {
+
+            color: rgb(30,30,30);
+
+            &:hover, &:visited, &:link, &:active {
+                text-decoration: none;
+            }
+
+            .brand {
+                color: red;
+            }
+        }
+    }
+}
+
+@import 'app';
+
+/*
 @import 'typography';
 @import 'layout';
-@import 'app';
+
 
 @import 'components/banner';
 @import 'components/card';
+*/

@@ -1,8 +1,17 @@
-<html>
-<head>
-<title>{{ page.title }} - Read Chinese Online</title>
-<link rel="stylesheet" type="text/css" href="{{data.prefix}}/assets/styles.css">
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ 
+    <title>{{ page.title }} - Read Chinese Online</title>
+    <link rel="stylesheet" type="text/css" href="{{data.prefix}}/assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 </head>
+
+
 <!-- body is hidden until initial front end transforms are applied -->
 <body style="display: none;">
 
@@ -18,25 +27,36 @@
     <a class="choice" id="learn-more">Learn More</a>
 </div>
 
-<div style="background-color: rgb(240,240,240);">
+<div class="top-bar">
     <div class="container">
-        <div class="navbar">
-            <a class="logo" href="{{data.prefix}}/"><strong>中文</strong> Read Chinese Online</a>
-            <span id="script-button">TRADITIONAL</span>
+        <div class="inner">
+            <a class="btn btn-link logo" href="{{data.prefix}}/"><strong class="brand">中文</strong> Read Chinese Online</a>
+            <button class="btn btn-primary" style="border-radius: 0;" id="script-button">Traditional</button>
         </div>
     </div>
 </div>
 
-<div style="background-color: rgb(230,230,230); padding: 20px 0;">
 {% block content %}{% endblock %}
-</div>
 
-<script>
-let PREFIX = '{{data.prefix}}';
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="{{data.prefix}}/assets/js/tongwen/tongwen-ts.js"></script>
-<script src="{{data.prefix}}/assets/js/rco.js"></script>
 
-</body>
+
+
+
+
+
+
+      <hr>
+
+      <footer>
+        <p>&copy; Read Chinese Online 2017</p>
+      </footer>
+    </div> <!-- /container -->
+
+    <script>
+    let PREFIX = '{{data.prefix}}';
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="{{data.prefix}}/assets/js/tongwen/tongwen-ts.js"></script>
+    <script src="{{data.prefix}}/assets/js/rco.js"></script>
+  </body>
 </html>

@@ -1,23 +1,70 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron" style="background-color: rgb(30,30,30); background: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), url({{data.prefix}}/assets/img/photos/chinese-street.jpg); background-size: cover; background-position: center; color: white; text-align: center; border-radius: 0;">
+    <div class="container">
+        <h1 class="display-3" style="margin: 20px 0; line-height: 1;">The Best Way to Learn Chinese</h1>
+        <p>Welcome to Read Chinese Online! Our website provides a complete framework for learning the Chinese language. And hey - it's free! ;)</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+     
 
 <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-3">
+            <h4><i class="fa fa-fw fa-book"></i> Simple Explanations</h4>
+            <p>Our courses and articles explain grammar and vocabulary in a simple way, making learning Chinese easy.</p> 
+        </div>
+        <div class="col-md-3">
+            <h4><i class="fa fa-fw fa-newspaper-o"></i> Both Scripts</h4>
+            <p>Are you learning simplified or traditional characters? Doesn't matter which! Click the button at the top right to switch between the two scripts.</p> 
+        </div>
+        <div class="col-md-3">
+            <h4><i class="fa fa-fw fa-share"></i> Word Pages</h4>
+            <p>See a word you don't know? Right click it, and select "Learn More" - you'll be taken to a page explaining the word!</p>
+        </div>
+        <div class="col-md-3">
+            <h4><i class="fa fa-fw fa-volume-up"></i> There's Sound</h4>
+            <p>Listen to the pronounciation of any word or sentence - just right click a word and select your option from the context menu.</p>
+        </div>
+    </div>
 
-    <h1 class="article-title">Read Chinese Online</h1>
-    <h2 class="article-description">
-        Hello! This is the new, static RCO.
-    </h2>
-    <hr>
+</div>
 
-    <h2>Articles</h2>
-    {% for x in data.articles %}
-        <a href="{{data.prefix}}/articles/{{x.filename}}">{{x.metadata.date}}: {{x.metadata.title}}</a><br>
-    {% endfor %}
-
-    <h2>Words</h2>
-    {% for x in data.wordPages %}
-        <a href="{{data.prefix}}/words/{{x.filename}}">{{x.metadata.title}}</a><br>
-    {% endfor %}
+<div style="background-color: rgb(240,240,240); padding-top: 40px; padding-bottom: 40px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Word Pages</h5>
+                        <p class="card-text">
+                            {% for x in data.wordPages %}
+                                <a href="{{data.prefix}}/words/{{x.filename}}">{{x.metadata.title}}</a><br> 
+                            {% endfor %}
+                        </p>
+                        <a href="#" class="btn btn-primary">Go to the Lexicon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Articles</h5>
+                        <p class="card-text">
+                            {% for x in data.articles %}
+                            <a href="{{data.prefix}}/articles/{{x.filename}}">{{x.metadata.date}}: {{x.metadata.title}}</a><br>
+                            {% endfor %}
+                        </p>
+                        <a href="#" class="btn btn-primary">See all Articles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 

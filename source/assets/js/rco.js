@@ -15,13 +15,13 @@ $(document).ready(function(){
             $(this).html( toSimp( $(this).html() ) );
         });
 
-        $('#script-button').text('SIMPLIFIED');
+        $('#script-button').text('Simplified');
         $('#script-button').off('click').on('click', function() {
             window.localStorage.setItem('rcoScript', 'traditional');
             location.reload();
         });
     } else {
-        $('#script-button').text('TRADITIONAL');
+        $('#script-button').text('Traditional');
         $('#script-button').off('click').on('click', function() {
             window.localStorage.setItem('rcoScript', 'simplified');
             location.reload();
