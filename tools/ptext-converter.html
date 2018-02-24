@@ -1,0 +1,53 @@
+<textarea id="inputbox"></textarea>
+<button id="startbutton">CONVERT</button>
+
+<div id="target"></div>
+
+<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+
+console.log("hello");
+
+
+
+
+let jsonToPtext = function(input) {
+
+    console.log(input);
+
+    let table = $('<table class="ptext"></table>').appendTo('#target');
+
+    
+    let nextRow;
+    let newRow = () => {
+        nextRow = $('<tr><td></td><td></td></tr>').appendTo(table);
+    }
+
+    newRow();
+
+    input.rows.forEach(row => {
+
+        if (row.type == 'sentence'){
+            console.log(row.english);
+            $(`<span>${row.english}</span>`).appendTo(nextRow.children().eq(1));
+
+            let chineseSentence = $(`<span class="chinese-sentence"></span>`).appendTo(nextRow.children().eq(0));
+            let inner = $(`<span class="inner"></span>`).appendTo(chineseSentence);
+            row.chinese.forEach(word => {
+                $(`<span data-word data-meaning="${word.meaning}" data-pinyin="${word.pinyin}">${word.traditional}</span>`).appendTo(inner);
+            });
+        }
+
+        if (row.type == 'break'){
+            newRow();
+        }
+    });
+
+
+}
+
+$('#startbutton').on('click', function() {
+    jsonToPtext( JSON.parse($('#inputbox').val()));
+});
+
+</script>
