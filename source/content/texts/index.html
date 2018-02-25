@@ -5,8 +5,18 @@
     "tags": ["grammar"],
 
     allTexts: () => {
-        return data.content.texts._pages
+
+        let texts = data.content.texts._pages
         .filter(x => x.filename !== 'index.html');
+
+        let levels = {};
+
+        texts.forEach(text => {
+            if (!levels[text.metadata.hskLevel]) levels[text.metadata.hskLevel] = [];
+            levels[text.metadata.hskLevel].push(text);
+        });
+
+        return levels;
     }
 }
 ---
@@ -17,8 +27,11 @@
 <div class="container">
     <h1>Parallel Texts</h1>
 
-    {% for text in page.allTexts() %}
-        <a href="{{text.url}}">{{ text.metadata.title }}</a><br>
+    {% for level, texts in page.allTexts() %}
+        <h4 style="margin-top:30px;">HSK Level {{level}}</h4>
+        {% for text in texts %}
+            <a href="{{text.url}}">{{ text.metadata.title }}</a><br>
+        {% endfor %}
     {% endfor %}
 </div>
 
