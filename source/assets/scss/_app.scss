@@ -96,3 +96,19 @@
 [data-word] {
     font-size: $chinese-font-size;
 }
+
+
+
+
+table.ptext {
+    tr {
+        border-bottom: 30px solid transparent;
+
+        td {
+            vertical-align: top;
+            width: 50%;
+
+        }
+    }
+
+}

@@ -6504,6 +6504,12 @@ h1, h2, h3, h4, h5, h6 {
 [data-word] {
   font-size: 21px; }
 
+table.ptext tr {
+  border-bottom: 30px solid transparent; }
+  table.ptext tr td {
+    vertical-align: top;
+    width: 50%; }
+
 /*
 @import 'typography';
 @import 'layout';

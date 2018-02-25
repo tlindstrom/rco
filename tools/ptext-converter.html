@@ -31,7 +31,7 @@ let jsonToPtext = function(input) {
             console.log(row.english);
             $(`<span>${row.english}</span>`).appendTo(nextRow.children().eq(1));
 
-            let chineseSentence = $(`<span class="chinese-sentence"></span>`).appendTo(nextRow.children().eq(0));
+            let chineseSentence = $(`<span data-sentence class="chinese chinese-sentence"></span>`).appendTo(nextRow.children().eq(0));
             let inner = $(`<span class="inner"></span>`).appendTo(chineseSentence);
             row.chinese.forEach(word => {
                 $(`<span data-word data-meaning="${word.meaning}" data-pinyin="${word.pinyin}">${word.traditional}</span>`).appendTo(inner);

@@ -90,6 +90,24 @@ $(document).ready(function(){
         $('#word-dropdown').hide();
     });
 
+
+    // automatically assign highlight values to parallel text sentences
+    let highlightCount = 0;
+    $('.ptext tr').each(function(){
+        let highlightCountCopy = highlightCount;
+        $(this).children().eq(0).children().each(function(){
+            $(this).attr('data-highlight', highlightCountCopy++);
+        });
+        $(this).children().eq(1).children().each(function(){
+            $(this).attr('data-highlight', highlightCount++);
+        });
+    });
+
+
+
+
+
+
     $('[data-highlight]').each(function(){
         let highlightId = $(this).attr('data-highlight');
         
