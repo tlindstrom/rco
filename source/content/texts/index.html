@@ -18,7 +18,7 @@
     <h1>Parallel Texts</h1>
 
     {% for text in page.allTexts() %}
-        <a href="{{text.url}}">{{ text.metadata.title }}</a>
+        <a href="{{text.url}}">{{ text.metadata.title }}</a><br>
     {% endfor %}
 </div>
 
