@@ -2,10 +2,10 @@
 {% block content %}
 
 <div class="container">
-    CHINESE WORD
-    <h1>{{page.title}}</h1>
-    <h2>{{page.description}}</h2>
-    <h3>HSK Level: {{page.hskLevel}}</h3>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1 style="margin: 0; font-size: 50px;">{{page.title}}</h1>
+        <h2 style="margin: 0; font-size: 20px;">HSK Level: {{page.hskLevel}}</h2>
+    </div>
 </div>
 
 {% block word %}{% endblock %}

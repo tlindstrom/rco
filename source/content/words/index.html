@@ -5,8 +5,18 @@
     "tags": ["grammar"],
 
     allWords: () => {
-        return data.content.words._pages
+
+        let words = data.content.words._pages
         .filter(x => x.filename !== 'index.html');
+
+        let levels = {};
+
+        words.forEach(word => {
+            if (!levels[word.metadata.hskLevel]) levels[word.metadata.hskLevel] = [];
+            levels[word.metadata.hskLevel].push(word);
+        });
+
+        return levels;
     }
 }
 ---
@@ -17,8 +27,12 @@
 <div class="container">
     This is the word page archive.
 
-    {% for word in page.allWords() %}
-        <a href="{{word.url}}">{{ word.metadata.title }}</a>
+
+    {% for level, words in page.allWords() %}
+        <h4 style="margin-top:30px;">HSK Level {{level}}</h4>
+        {% for word in words %}
+            <a href="{{word.url}}">{{ word.metadata.title }}</a><br>
+        {% endfor %}
     {% endfor %}
 </div>
 
