@@ -6488,8 +6488,11 @@ h1, h2, h3, h4, h5, h6 {
       text-decoration: none;
       color: inherit; }
 
-.example-sentence .meaning {
-  font-style: italic; }
+.example-sentence {
+  margin: 30px 0;
+  padding-left: 20px; }
+  .example-sentence .meaning {
+    font-style: italic; }
 
 .chinese-sentence {
   font-size: 21px;
@@ -6518,3 +6521,8 @@ table.ptext tr {
 @import 'components/banner';
 @import 'components/card';
 */
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 40px; }
