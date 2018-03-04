@@ -116,3 +116,16 @@ table.ptext {
     }
 
 }
+
+
+// styles for the articles (parallel texts, courses, word pages)
+.rco-article {
+
+    p, h1, h2, h3, h4, h5, h6 {
+        margin: 20px 0;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        margin-top: 40px;
+    }
+
+}
