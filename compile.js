@@ -9,8 +9,7 @@ let hskVocabulary = require('./source/misc/hsk-vocabulary.json');
 
 let data = {
     prefix: '/rco',
-};
-
+}; 
 
 
 let deepCopy = function(array){
@@ -93,30 +92,22 @@ data.content = readContent(
 
 
 
-
-
-
-
 // function that post-processes the rendered HTML
 let processPage = function(page) {
 
-    let $ = cheerio.load(page, { decodeEntities: false });
-
     // if words don't have details, try to fill them in from the vocabulary list
+
+    let wordPages = {};
+    
+    data.content['words']._pages.forEach(x => {
+        wordPages[x.metadata.title] = x;
+    });
+    
+    let $ = cheerio.load(page, { decodeEntities: false });
     $('[data-word]').each(function() {
 
-        //let wordFromList = hskVocabulary.find(x => x.Traditional == $(this).html().trim());
-        
-        /*
-        if (wordFromList){
-            if (!$(this).attr('data-meaning')) $(this).attr('data-meaning', wordFromList.keyword);
-            if (!$(this).attr('data-pinyin'))  $(this).attr('data-pinyin',  wordFromList.pinyin);
-        }
-        */
-
-
         // if it exists, add word page
-        let wordpage = data.content['words']._pages.find(x => x.metadata.title == $(this).html());
+        let wordpage = wordPages[ $(this).html() ];
         if (wordpage) $(this).attr('data-wordpage', wordpage.metadata.title);
 
     });

@@ -6513,6 +6513,12 @@ table.ptext tr {
     vertical-align: top;
     width: 50%; }
 
+.rco-article p, .rco-article h1, .rco-article h2, .rco-article h3, .rco-article h4, .rco-article h5, .rco-article h6 {
+  margin: 20px 0; }
+
+.rco-article h1, .rco-article h2, .rco-article h3, .rco-article h4, .rco-article h5, .rco-article h6 {
+  margin-top: 40px; }
+
 /*
 @import 'typography';
 @import 'layout';
@@ -6521,8 +6527,3 @@ table.ptext tr {
 @import 'components/banner';
 @import 'components/card';
 */
-p, h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 40px; }
