@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ 
+    <title>Example Page - Read Chinese Online</title>
+    <link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+
+
+<!-- body is hidden until initial front end transforms are applied -->
+<body style="display: none;">
+
+<div id="wordbox">
+    <div class="chinese"></div>
+    <div class="pinyin"></div>
+    <div class="meaning"></div>
+</div>
+
+<div id="word-dropdown">
+    <div class="choice" id="listen-to-word">Listen to word</div>
+    <div class="choice" id="listen-to-sentence">Listen to sentence</div>
+    <a class="choice" id="learn-more">Learn More</a>
+</div>
+
+<div class="top-bar">
+    <div class="container">
+        <div class="inner">
+            <div>
+                <a class="btn btn-link logo" href="/rco/"><strong class="brand">中文</strong> Read Chinese Online</a>
+                <a class="btn btn-link logo" href="/rco/courses">Courses</a>
+                <a class="btn btn-link logo" href="/rco/texts">Parallel Texts</a>
+                <a class="btn btn-link logo" href="/rco/words">Lexicon</a>
+            </div>
+            <button class="btn btn-primary" style="border-radius: 0;" id="script-button">Traditional</button>
+        </div>
+    </div>
+</div>
+<div style="padding: 5px 0; background-color: rgb(240,240,240);">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background: none; padding: 0; margin: 0;">
+                
+                <li class="breadcrumb-item ">
+                    
+                        <a href="/rco/index.html">Home</a>
+                    
+                </li>
+                
+                <li class="breadcrumb-item active">
+                    
+                        Example Page
+                    
+                </li>
+                
+            </ol>
+        </nav>
+    </div>
+</div>
+
+
+
+<div class="container">
+
+    <h1>Basic Formatting</h1>
+
+    <p>A typical block of text should be written into a set of P tags, like this one. <strong>This</strong> is how to make text bold, and <em>this</em> is how to make it italic. <span class="underlined">This</span> is how to add an underline.
+
+    </p><h1>Interactive Chinese Text</h1>
+
+    <p>Here's an example of a Chinese word inside a text block: <span data-word="" data-meaning="we " data-pinyin="wǒmen">我們</span>. It needs three attributes: <strong>data-word</strong> to mark it as a word, and <strong>data-meaning</strong> and <strong>data-pinyin</strong> for the English translation and the pinyin.</p>
+
+    <p>
+        You can also create a Chinese sentence inside of a paragraph, or anywhere else, for that matter. To keep it clean, it's a good idea to format the sentence nicely, with indentation, like this:
+        <span data-sentence="" class="chinese chinese-sentence"><span class="inner">
+            <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
+            <span data-word="" data-meaning="would like to" data-pinyin="xiǎng" data-wordpage="想">想</span>
+            <span data-word="" data-meaning="to drink" data-pinyin="hē">喝</span>
+            <span data-word="" data-meaning="what" data-pinyin="shénme" data-wordpage="什麼">什麼</span>
+            <span data-word="" data-meaning="" data-pinyin="?">？</span>
+        </span></span>
+        Notice how the words in a sentence are exactly like the standalone words. You just wrap it with the sentence tags to turn it into a sentence. Adding the sentnece tags makes it light up like a sentence, and allows users to choose "listen to sentence" from the context menu.
+    </p>
+
+    <p>There's a particular formatting for example sentences, which looks like this:</p>
+
+    <div class="example-sentence">
+        <span data-sentence="" class="chinese chinese-sentence"><span class="inner">
+            <span data-word="" data-meaning="I" data-pinyin="wǒ" data-wordpage="我">我</span>
+            <span data-word="" data-meaning="not" data-pinyin="bù" data-wordpage="不">不</span>
+            <span data-word="" data-meaning="often" data-pinyin="cháng">常</span>
+            <span data-word="" data-meaning="to go" data-pinyin="qù">去</span>
+            <span data-word="" data-meaning="library" data-pinyin="túshūguǎn">圖書館</span>
+            <span data-word="" data-meaning="" data-pinyin="。">。</span>
+        </span></span>
+        <div class="pinyin">wǒ bù cháng qù túshūguǎn 。 </div>
+        <div class="meaning">I don't go to the library often.</div>
+    </div>
+
+    <p>It consists of a Chinese sentence, followed by lines describing <strong>pinyin</strong> and <strong>meaning</strong>, and everything being wrapped in an <strong>.example-sentence</strong> tag.</p>
+
+    <p>The parallel texts look like this:</p>
+
+    <table class="ptext">
+        <tbody><tr>
+            <td>
+                <span data-sentence="" class="chinese chinese-sentence">
+                    <span class="inner">
+                        <span data-word="" data-meaning="Today" data-pinyin="jīntiān" data-wordpage="今天">今天</span>
+                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="Sunday" data-pinyin="xīngqītiān">星期天</span>
+                        <span data-word="" data-meaning="" data-pinyin="，">，</span>
+                        <span data-word="" data-meaning="Zhangyi" data-pinyin="zhāngyī">張一</span>
+                        <span data-word="" data-meaning="and" data-pinyin="hé">和</span>
+                        <span data-word="" data-meaning="Zhanger" data-pinyin="zhāngèr">張二</span>
+                        <span data-word="" data-meaning="not" data-pinyin="bù" data-wordpage="不">不</span>
+                        <span data-word="" data-meaning="to need" data-pinyin="yòng">用</span>
+                        <span data-word="" data-meaning="to work" data-pinyin="gōngzuò">工作</span>
+                        <span data-word="" data-meaning="" data-pinyin="。">。</span>
+                    </span>
+                </span>
+                <span data-sentence="" class="chinese chinese-sentence">
+                    <span class="inner">
+                        <span data-word="" data-meaning="this" data-pinyin="zhè">這</span>
+                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="they" data-pinyin="tāmen">他們</span>
+                        <span data-word="" data-meaning="at" data-pinyin="zài">在</span>
+                        <span data-word="" data-meaning="coffee shop" data-pinyin="kāfēitīng">咖啡廳</span>
+                        <span data-word="" data-meaning="inside" data-pinyin="lǐ">裡</span>
+                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                        <span data-word="" data-meaning="conversation" data-pinyin="duìhuà">對話</span>
+                        <span data-word="" data-meaning="" data-pinyin="：">：</span>
+                    </span>
+                </span>
+            </td>
+            <td>
+                <span>Today is Sunday, Zhangyi and Zhanger don’t have to work.</span>
+                <span>This is their conversation in a coffee shop:</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span data-sentence="" class="chinese chinese-sentence">
+                    <span class="inner">
+                        <span data-word="" data-meaning="Zhangyi" data-pinyin="zhāngyī">張一</span>
+                        <span data-word="" data-meaning="" data-pinyin="：">：</span>
+                        <span data-word="" data-meaning="tomorrow" data-pinyin="míngtiān" data-wordpage="明天">明天</span>
+                        <span data-word="" data-meaning="again" data-pinyin="yòu">又</span>
+                        <span data-word="" data-meaning="to need" data-pinyin="yào" data-wordpage="要">要</span>
+                        <span data-word="" data-meaning="to go to work " data-pinyin="shàngbān">上班</span>
+                        <span data-word="" data-meaning="(emphatic particle)" data-pinyin="le" data-wordpage="了">了</span>
+                        <span data-word="" data-meaning="" data-pinyin="！">！</span>
+                    </span>
+                </span>
+            </td>
+            <td>
+                <span>Zhangyi: Tomorrow I have to work again!</span>
+            </td>
+        </tr>
+    </tbody></table>
+
+    <p>As you can see, the parallel text is simply an HTML table marked with the <strong>ptext</strong> class. Each row in the table corresponds to a paragraph in the text. The table has two columns: The left column contains the Chinese sentences (using the exact same format as Chinese sentences anywhere else on the site), and the right column contains the corresponding English sentences.</p>
+
+
+
+</div>
+
+
+
+
+
+
+<footer style="background-color: rgb(230,230,230);padding-top: 20px; padding-bottom: 20px; margin-top: 20px;">
+    <div class="container">
+        <p>© Read Chinese Online 2017</p>
+
+        <h2>Support us!</h2>
+        <p>We'd love to keep this website a free product forever. Please consider supporting us!</p>
+        <a href="https://patreon.com/readchineseonline">Support us on Patreon</a>
+    </div>
+</footer>
+
+
+<script>
+let PREFIX = '/rco';
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
+<script src="/rco/assets/js/rco.js"></script>
+
+
+</body></html>
