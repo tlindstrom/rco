@@ -27,6 +27,11 @@
 <div class="container">
     <h1>Parallel Texts</h1>
 
+    <p>Welcome to Read Chinese Online's library of <strong><em>Parallel Texts</em></strong>! These are interactive stories and articles written in both Chinese and English, so that you can practice reading Chinese with an English translation at hand.</p>
+    <p>If you hover your mouse pointer over a sentence, it will light up both in the English and the Chinese text, so that you can see which sentences correspond to each other. Also, if you hover your mouse pointer over a Chinese word, a little box will appear with its English translation and its pronunciation.</p>
+    <p>You can right click Chinese words to bring up a context menu. From this menu you can choose to listen to the word, or the entire sentence, and also, if we have a word page for this particular word, you can click "Learn more" to go there and learn about this particular word.</p>
+    <p>Happy reading!</p>
+
     {% for level, texts in page.allTexts() %}
         <h4 style="margin-top:30px;">HSK Level {{level}}</h4>
         {% for text in texts %}
