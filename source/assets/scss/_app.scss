@@ -105,6 +105,10 @@
 
 
 table.ptext {
+
+    margin-top: 50px;
+    font-size: 18px;
+
     tr {
         border-bottom: 30px solid transparent;
 
@@ -112,7 +116,15 @@ table.ptext {
             vertical-align: top;
             width: 50%;
             padding-right: 30px;
+        }
 
+        &.ptext-title {
+            font-size: 30px;
+
+            .chinese, .chinese span span {
+                font-size: 28px;
+
+            }
         }
     }
 
