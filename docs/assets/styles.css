@@ -6529,7 +6529,8 @@ table.ptext tr {
   border-bottom: 30px solid transparent; }
   table.ptext tr td {
     vertical-align: top;
-    width: 50%; }
+    width: 50%;
+    padding-right: 30px; }
 
 .rco-article p, .rco-article h1, .rco-article h2, .rco-article h3, .rco-article h4, .rco-article h5, .rco-article h6 {
   margin: 20px 0; }
