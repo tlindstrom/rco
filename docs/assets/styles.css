@@ -6525,12 +6525,19 @@ strong {
 [data-word] {
   font-size: 21px; }
 
-table.ptext tr {
-  border-bottom: 30px solid transparent; }
-  table.ptext tr td {
-    vertical-align: top;
-    width: 50%;
-    padding-right: 30px; }
+table.ptext {
+  margin-top: 50px;
+  font-size: 18px; }
+  table.ptext tr {
+    border-bottom: 30px solid transparent; }
+    table.ptext tr td {
+      vertical-align: top;
+      width: 50%;
+      padding-right: 30px; }
+    table.ptext tr.ptext-title {
+      font-size: 30px; }
+      table.ptext tr.ptext-title .chinese, table.ptext tr.ptext-title .chinese span span {
+        font-size: 28px; }
 
 .rco-article p, .rco-article h1, .rco-article h2, .rco-article h3, .rco-article h4, .rco-article h5, .rco-article h6 {
   margin: 20px 0; }
