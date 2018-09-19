@@ -6538,6 +6538,8 @@ table.ptext {
       font-size: 30px; }
       table.ptext tr.ptext-title .chinese, table.ptext tr.ptext-title .chinese span span {
         font-size: 28px; }
+    table.ptext tr.less-spacing {
+      border-bottom: 15px solid transparent; }
 
 .rco-article p, .rco-article h1, .rco-article h2, .rco-article h3, .rco-article h4, .rco-article h5, .rco-article h6 {
   margin: 20px 0; }
