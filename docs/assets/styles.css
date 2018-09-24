@@ -6445,6 +6445,12 @@ strong {
 .underlined {
   text-decoration: underline; }
 
+.bold {
+  font-weight: bold; }
+
+.italic {
+  font-style: italic; }
+
 .top-bar {
   background-color: white; }
   .top-bar .inner {
