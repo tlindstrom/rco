@@ -3,10 +3,12 @@
 
 <body>
 
-<textarea id="inputbox"></textarea>
+<textarea id="inputbox" style="width: 100%; height: 300px;" placeholder="paste your page here ..."></textarea>
 <button id="startbutton">CONVERT</button>
+<textarea id="outputbox" style="width: 100%; height: 300px;" placeholder="page with auto-generated pinyin comes out here ..."></textarea>
 
-<textarea id="outputbox"></textarea>
+
+
 
 <script>
 
@@ -2919,12 +2921,7 @@ document.getElementById("startbutton").addEventListener("click", function(){
 
         let pinyin = window.cjst.chineseToPinyin(x.innerHTML).join('');
 
-        x.dataset.pinyin =  pinyin;
-
-        console.log(pinyin);
-
-        console.log(x.dataset);
-        
+        if (!x.dataset.pinyin) x.dataset.pinyin =  pinyin;        
     });
 
     console.log(doc.constructor);
