@@ -1,3 +1,4 @@
+ <!-- roughly everything you need for a parallel text  -->
 {
     title: "blank",
     description: "blank!",
@@ -40,4 +41,36 @@
 
 </div>
 
+{% endblock %}
+
+<!--roughly everything you'll need for word pages -->
+{
+    "title": "",
+    "description": "",
+    "hskLevel": 1,
+    "tags": ["grammar"]
+}
+---
+
+{% extends "word.html" %}
+{% block word %}
+<div class="container">
+
+    <p></p>
+
+    <h2><strong></strong></h2>
+
+    <p></p>
+
+    <div class="container">
+    <div class="example-sentence">
+        <span data-sentence="" class="chinese chinese-sentence">
+            <span class="inner">
+                <span data-word="" data-meaning="I" data-pinyin=""></span>
+            </span>
+        </span>
+        <div class="pinyin"></div>
+        <div class="meaning"></div>
+    </div>
+</div>
 {% endblock %}
