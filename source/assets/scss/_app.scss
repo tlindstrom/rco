@@ -1,14 +1,25 @@
 [data-word]{
-    cursor: pointer;
+    cursor: default;
 
     &:hover {
         background-color: $highlight-color-1;
     }
+
+    &[data-wordpage]{
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
 }
 
 
+
+
 [data-highlight]{
-    cursor: pointer;
+    cursor: default;
 
     &.highlighted {
         background-color: $highlight-color-2;

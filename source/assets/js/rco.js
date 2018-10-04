@@ -51,6 +51,11 @@ $(document).ready(function(){
             $('#wordbox').hide();
         });
 
+        $(this).click(function(){
+            if ($(this).attr('data-wordpage'))
+                window.location = PREFIX + '/words/' + $(this).attr('data-wordpage') + '.html';
+        });
+
         $(this).contextmenu(function(){
             let wordElement = $(this);
 
@@ -89,7 +94,6 @@ $(document).ready(function(){
     $(document).click(function() {
         $('#word-dropdown').hide();
     });
-
 
     // automatically assign highlight values to parallel text sentences
     let highlightCount = 0;
