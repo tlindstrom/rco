@@ -6466,12 +6466,16 @@ strong {
         color: red; }
 
 [data-word] {
-  cursor: pointer; }
+  cursor: default; }
   [data-word]:hover {
     background-color: #009DFF; }
+  [data-word][data-wordpage] {
+    cursor: pointer; }
+    [data-word][data-wordpage]:hover {
+      text-decoration: underline; }
 
 [data-highlight] {
-  cursor: pointer; }
+  cursor: default; }
   [data-highlight].highlighted {
     background-color: #9CD9FF; }
 
