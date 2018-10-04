@@ -8,6 +8,8 @@
     &[data-wordpage]{
         cursor: pointer;
 
+        background-color: rgba(0,0,0,0.09);
+
         &:hover {
             text-decoration: underline;
         }
@@ -94,6 +96,8 @@
 }
 
 .chinese-sentence {
+    //background-color: rgb(240,240,240);
+
     font-size: $chinese-font-size;
     line-height: 1.64;
     .inner {

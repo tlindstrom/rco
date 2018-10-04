@@ -52,6 +52,7 @@ $(document).ready(function(){
         });
 
         $(this).click(function(){
+            // TO DO: maybe cancel this on phones and tablets
             if ($(this).attr('data-wordpage'))
                 window.location = PREFIX + '/words/' + $(this).attr('data-wordpage') + '.html';
         });
