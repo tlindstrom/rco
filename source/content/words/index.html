@@ -7,7 +7,8 @@
     allWords: () => {
 
         let words = data.content.words._pages
-        .filter(x => x.filename !== 'index.html');
+        .filter(x => x.filename !== 'index.html')
+        .filter(x => !x.filename.startsWith('_'));
 
         let levels = {};
 
