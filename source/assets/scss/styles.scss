@@ -51,16 +51,33 @@ strong {
     }
 }
 
+#script-buttons {
+    
+    display: flex;
+    flex-direction: row;
 
-#script-button-traditional, #script-button-simplified {
-    cursor: pointer;
-    color: rgb(60,60,60);
+    #script-button-traditional, #script-button-simplified {
 
-    &.chosen {
-        color: black;
-        text-decoration: underline;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        height: 100%;
+        padding: 0 10px;
+
+        cursor: pointer;
+        color: rgb(60,60,60);
+
+        &.chosen {
+            color: black;
+            text-decoration: underline;
+        }
     }
+
 }
+
+
+
 
 @import 'app';
 // @import 'layout';
