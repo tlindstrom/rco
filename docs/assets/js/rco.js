@@ -9,23 +9,26 @@ let rco = {
 }
 
 $(document).ready(function(){
+
+    $('#script-button-traditional').off('click').on('click', function() {
+        window.localStorage.setItem('rcoScript', 'traditional');
+        location.reload();
+    });
+    $('#script-button-simplified').off('click').on('click', function() {
+        window.localStorage.setItem('rcoScript', 'simplified');
+        location.reload();
+    });
+
     // simplify words
     if (window.localStorage.getItem('rcoScript') == 'simplified') {
+
+        $('#script-button-simplified').addClass('chosen');
+
         $('[data-word]').each(function(){
             $(this).html( toSimp( $(this).html() ) );
         });
-
-        $('#script-button').text('Simplified');
-        $('#script-button').off('click').on('click', function() {
-            window.localStorage.setItem('rcoScript', 'traditional');
-            location.reload();
-        });
     } else {
-        $('#script-button').text('Traditional');
-        $('#script-button').off('click').on('click', function() {
-            window.localStorage.setItem('rcoScript', 'simplified');
-            location.reload();
-        });
+        $('#script-button-traditional').addClass('chosen');
     }
     
     $('body').show();
