@@ -44,6 +44,10 @@ strong {
                 text-decoration: none;
             }
 
+            &:hover {
+                background-color: rgb(250,250,250);
+            }
+
             .brand {
                 color: red;
             }
@@ -66,7 +70,11 @@ strong {
         padding: 0 10px;
 
         cursor: pointer;
-        color: rgb(60,60,60);
+        color: rgb(130,130,130);
+
+        &:hover {
+            background-color: rgb(250,250,250);
+        }
 
         &.chosen {
             color: black;
