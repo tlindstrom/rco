@@ -100,7 +100,7 @@ let processPage = function(page) {
     let wordPages = {};
     
     data.content['words']._pages.forEach(x => {
-        wordPages[x.metadata.title] = x;
+        wordPages[x.filename.replace('.html', '')] = x;
     });
     
     let $ = cheerio.load(page, { decodeEntities: false });
