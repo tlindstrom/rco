@@ -5,7 +5,7 @@
 
 <textarea id="inputbox" style="width: 100%; height: 300px;" placeholder="Enter a Chinese sentence here, with the words separate spaces"></textarea>
 <button id="startbutton">CONVERT</button>
-<textarea id="outputbox" style="width: 100%; height: 300px;" placeholder="Here it will output boilerplate markup for an RCO sentence, with suggested pinyin as well"></textarea>
+<textarea id="outputbox" style="width: 100%; height: 300px;" placeholder="Here it will output word tags for the words, with pinyin suggestions filled in"></textarea>
 
 
 
@@ -2919,20 +2919,18 @@ function htmlToElement(html) {
 
 document.getElementById("startbutton").addEventListener("click", function(){
 
-    let words = document.getElementById("inputbox").value.split(" ");
+    let words = document.getElementById("inputbox").value.trim().split(" ");
 
-	let sentence = htmlToElement(`<span data-sentence="" class="chinese chinese-sentence">`);
-	let inner = htmlToElement(`<span class="inner">`);
-	sentence.appendChild(inner);
+	let output = '';
 
     words.forEach(x => {
 		let pinyin = window.cjst.chineseToPinyin(x).join('');
-		inner.appendChild(htmlToElement(`<span data-word data-meaning="" data-pinyin="${pinyin}">${x}</span>`));
-    });
+		let element = htmlToElement(`<span data-word data-meaning="" data-pinyin="${pinyin}">${x}</span>`);
 
-	let t = document.createElement('div');
-	t.appendChild(sentence);	
-	let output = t.innerHTML;
+		let t = document.createElement('div');
+		t.appendChild(element);	
+		output += t.innerHTML + '\n';
+    });
 
     document.getElementById('outputbox').value = output;
 
