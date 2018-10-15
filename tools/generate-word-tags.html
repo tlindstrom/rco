@@ -2919,6 +2919,8 @@ function htmlToElement(html) {
 
 document.getElementById("startbutton").addEventListener("click", function(){
 
+	let pinyinSentence = "";
+
     let words = document.getElementById("inputbox").value.trim().split(" ");
 
 	let output = '';
@@ -2926,11 +2928,14 @@ document.getElementById("startbutton").addEventListener("click", function(){
     words.forEach(x => {
 		let pinyin = window.cjst.chineseToPinyin(x).join('');
 		let element = htmlToElement(`<span data-word data-meaning="" data-pinyin="${pinyin}">${x}</span>`);
+		pinyinSentence += pinyin + " ";
 
 		let t = document.createElement('div');
 		t.appendChild(element);	
 		output += t.innerHTML + '\n';
     });
+
+	output += `\n${ pinyinSentence }`;
 
     document.getElementById('outputbox').value = output;
 
