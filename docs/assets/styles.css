@@ -6470,7 +6470,8 @@ em {
       .top-bar .inner .logo:hover {
         background-color: #fafafa; }
       .top-bar .inner .logo .brand {
-        color: red; }
+        color: red;
+        font-weight: 700; }
 
 #script-buttons {
   display: flex;
