@@ -3,6 +3,18 @@
 
 <body>
 
+<p>Here's what the input format looks like. Chinese on the left, English on the right, with a pipe character between them. Chinese words separated by spaces. Paragraphs are separated by empty lines.</p>
+<pre>
+
+你好 ， 你 好 嗎 ？ | Hello, how are you?
+你 是 一 隻 鴨子 。 | You are a duck.
+
+這 就是 我 說 的 。 | This is what I said.
+那個 命運 的 日子 。 | That fateful day.
+        
+
+</pre>
+
 <textarea id="inputbox" style="width: 100%; height: 300px;" placeholder="Enter a Chinese sentence here, with the words separate spaces"></textarea>
 <button id="startbutton">CONVERT</button>
 <textarea id="outputbox" style="width: 100%; height: 300px;" placeholder="Here it will output word tags for the words, with pinyin suggestions filled in"></textarea>
@@ -2916,6 +2928,10 @@ function htmlToElement(html) {
     return template.content.firstChild;
 }
 
+function createWordTag(x) {
+    let pinyin = window.cjst.chineseToPinyin(x).join('');
+    return `<span data-word data-meaning="" data-pinyin="${pinyin}">${x}</span>`;
+}
 
 document.getElementById("startbutton").addEventListener("click", function(){
 
@@ -2923,7 +2939,26 @@ document.getElementById("startbutton").addEventListener("click", function(){
 
     let paragraphs = [];
 
-    lines.for
+    let newParagraph = [];
+    
+    lines.forEach(line => {
+
+        if (line != ''){
+            newParagraph.push({
+                chinese: line.split('|')[0].trim().split(' '),
+                english: line.split('|')[1].trim()
+            });
+        }else{
+            paragraphs.push(newParagraph);
+            newParagraph = [];
+        }
+
+    });
+
+    paragraphs.push(newParagraph);
+    newParagraph = [];
+
+    console.log("paragraphs", paragraphs);
 
     let output = '';
 
@@ -2934,11 +2969,29 @@ document.getElementById("startbutton").addEventListener("click", function(){
     out('<div class="container">');
     out('    <table class="ptext">');
 
-    paragraphs.forEach(line => {
+    paragraphs.forEach(paragraph => {
 
         out('        <tr>');
         out('            <td>');
 
+            // loop over Chinese sentences
+            paragraph.forEach(line => {
+                out('                <span data-sentence="" class="chinese chinese-sentence"><span class="inner">');
+                    line.chinese.forEach(word => {
+                        out('                    ' + createWordTag(word));
+                    });
+                out('                </span></span>');
+            });
+
+        out('            </td>');
+        out('            <td>');
+            
+            // loop over english sentences
+            paragraph.forEach(line => {
+                out(`                <span>${line.english}</span>`);
+            });
+
+        out('            </td>');
         out('        </tr>');
 
     });
@@ -2950,7 +3003,7 @@ document.getElementById("startbutton").addEventListener("click", function(){
     out('</div>');
 
 
-    console.log(output);
+    document.getElementById('outputbox').value = output;
 
 
 });
