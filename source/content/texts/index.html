@@ -34,7 +34,7 @@
     <p>Happy reading!</p>
 
     {% for level, texts in page.allTexts() %}
-        <h4 style="margin-top:30px;">HSK Level {{level}}</h4>
+        <h4 style="margin-top:30px;">Difficulty Level {{level}}</h4>
         {% for text in texts %}
             <a href="{{text.url}}">{{ text.metadata.title }}</a><br>
         {% endfor %}

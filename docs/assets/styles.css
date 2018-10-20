@@ -6584,9 +6584,11 @@ table.ptext {
   margin-top: 40px; }
 
 .structure-hint {
+  display: inline-block;
   background-color: #e6e6e6;
   border-radius: 10px;
-  padding: 6px; }
+  padding: 0 5px;
+  margin: 3px; }
 
 /*
 @import 'typography';
