@@ -1,84 +1,13 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{
+    title: "有",
+    description: "A test article about the word 吧",
+    hskLevel: 1,
+    tags: ["grammar"]
+}
+---
 
- 
-    <title>有 - Read Chinese Online</title>
-    <link rel="stylesheet" type="text/css" href="/rco/assets/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-</head>
-
-
-<!-- body is hidden until initial front end transforms are applied -->
-<body style="display: none;">
-
-<div id="wordbox">
-    <div class="chinese"></div>
-    <div class="pinyin"></div>
-    <div class="meaning"></div>
-</div>
-
-<div id="word-dropdown">
-    <div class="choice" id="listen-to-word">Listen to word</div>
-    <div class="choice" id="listen-to-sentence">Listen to sentence</div>
-    <a class="choice" id="learn-more">Learn More</a>
-</div>
-
-<div class="top-bar">
-    <div class="container">
-        <div class="inner">
-            <div>
-                <a class="btn btn-link logo" href="/rco/"><span class="brand">中文</span> Read Chinese Online</a>
-                <a class="btn btn-link logo" href="/rco/texts">Parallel Texts</a>
-                <a class="btn btn-link logo" href="/rco/words">Lexicon</a>
-            </div>
-            <div id="script-buttons">
-                <span id="script-button-traditional">Traditional</span>
-                <span id="script-button-simplified">Simplified</span>
-            </div>
-        </div>
-    </div>
-</div>
-<div style="padding: 5px 0; background-color: rgb(240,240,240);">
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background: none; padding: 0; margin: 0;">
-                
-                <li class="breadcrumb-item ">
-                    
-                        <a href="/rco/index.html">Home</a>
-                    
-                </li>
-                
-                <li class="breadcrumb-item ">
-                    
-                        <a href="/rco/words/index.html">Lexicon</a>
-                    
-                </li>
-                
-                <li class="breadcrumb-item active">
-                    
-                        有
-                    
-                </li>
-                
-            </ol>
-        </nav>
-    </div>
-</div>
-
-
-
-<div class="rco-article">
-    <div class="container">
-        <div style="text-align: center; margin-bottom: 20px;">
-            <h1 style="margin: 0; font-size: 50px;">有</h1>
-            <h2 style="margin: 0; font-size: 20px;">HSK Level: 1</h2>
-        </div>
-    </div>
-</div>
-
-
+{% extends "word.html" %}
+{% block word %}
 
 <div class="container">
     <p>
@@ -96,7 +25,7 @@
         <strong>有 (yǒu)</strong> is used to indicate possession, it is correct to translate it into 
         <em>to have</em>. Same as the English equivalent, both animate and inanimate entities could be the subject of 
         <strong>有 (yǒu)</strong>:
-        <br>
+        <br/>
         <strong>subject + 有 + object</strong>
     </p>
     <div class="example-sentence">
@@ -105,12 +34,12 @@
                 <span data-word="" data-meaning="vehicle" data-pinyin="chē">車</span>
                 <span data-word="" data-meaning="to have" data-pinyin="yǒu">有</span>
                 <span data-word="" data-meaning="four" data-pinyin="sì">四</span>
-                <span data-word="" data-meaning="(classifier)" data-pinyin="gè">個</span>
+                <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                 <span data-word="" data-meaning="wheel" data-pinyin="chēlún">車輪</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
             </span>
         </span>
-        <div class="pinyin">chē yǒu sì gè chēlún 。 </div>
+        <div class="pinyin">chē yǒu sì ge chēlún 。 </div>
         <div class="meaning">A vehicle has four wheels.</div>
     </div>
     <div class="example-sentence">
@@ -131,17 +60,17 @@
     <div class="example-sentence">
         <span data-sentence="" class="chinese chinese-sentence">
             <span class="inner">
-                <span data-word="" data-meaning="I" data-pinyin="wǒ" data-wordpage="我">我</span>
+                <span data-word="" data-meaning="I" data-pinyin="wǒ">我</span>
                 <span data-word="" data-meaning="to have" data-pinyin="yǒu">有</span>
-                <span data-word="" data-meaning="(classifier)" data-pinyin="gè">個</span>
+                <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                 <span data-word="" data-meaning="very" data-pinyin="hěn">很</span>
                 <span data-word="" data-meaning="handsome" data-pinyin="shuài">帥</span>
-                <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                 <span data-word="" data-meaning="son" data-pinyin="érzi">兒子</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
             </span>
         </span>
-        <div class="pinyin">wǒ yǒu gè hěn shuài de érzi 。 </div>
+        <div class="pinyin">wǒ yǒu ge hěn shuài de érzi 。 </div>
         <div class="meaning">I have a very handsome son.</div>
     </div>
     <div class="example-sentence">
@@ -151,20 +80,20 @@
                 <span data-word="" data-meaning="should" data-pinyin="yīng">應</span>
                 <span data-word="" data-meaning="to have" data-pinyin="yǒu">有</span>
                 <span data-word="" data-meaning="one" data-pinyin="yī">一</span>
-                <span data-word="" data-meaning="(classifier)" data-pinyin="gè">個</span>
+                <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                 <span data-word="" data-meaning="beautiful" data-pinyin="měilí">美麗</span>
-                <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                 <span data-word="" data-meaning="cover page" data-pinyin="fēngmiàn">封面</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
             </span>
         </span>
-        <div class="pinyin">shūběn yīng yǒu yī gè měilí de fēngmiàn 。 </div>
+        <div class="pinyin">shūběn yīng yǒu yī ge měilí de fēngmiàn 。 </div>
         <div class="meaning">Books should have a beautiful cover page. </div>
     </div>
     <div class="example-sentence">
         <span data-sentence="" class="chinese chinese-sentence">
             <span class="inner">
-                <span data-word="" data-meaning="I" data-pinyin="wǒ" data-wordpage="我">我</span>
+                <span data-word="" data-meaning="I" data-pinyin="wǒ">我</span>
                 <span data-word="" data-meaning="not" data-pinyin="méi">沒</span>
                 <span data-word="" data-meaning="to have" data-pinyin="yǒu">有</span>
                 <span data-word="" data-meaning="experience" data-pinyin="jīngyàn">經驗</span>
@@ -180,7 +109,7 @@
         <strong>沒 (méi)</strong> to negate 
         <strong>有 (yǒu)</strong> instead of 
         <strong>不 (bù)</strong>.)
-        <br>Sometimes we produce adjectives by putting 
+        <br/>Sometimes we produce adjectives by putting 
         <strong>有 (yǒu)</strong> before certain nominal objects, for example:
     </p>
 
@@ -227,10 +156,10 @@
         <span data-sentence="" class="chinese chinese-sentence">
             <span class="inner">
                 <span data-word="" data-meaning="why" data-pinyin="wèishénme">為什麼</span>
-                <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
+                <span data-word="" data-meaning="you" data-pinyin="nǐ">你</span>
                 <span data-word="" data-meaning="that" data-pinyin="zhème">這麼</span>
                 <span data-word="" data-meaning="certain" data-pinyin="yǒubǎwò">有把握</span>
-                <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
+                <span data-word="" data-meaning="you" data-pinyin="nǐ">你</span>
                 <span data-word="" data-meaning="will" data-pinyin="huì">會</span>
                 <span data-word="" data-meaning="win" data-pinyin="yíng">贏</span>
                 <span data-word="" data-meaning="(question marker)" data-pinyin="ne">呢</span>
@@ -248,7 +177,7 @@
     <p>
         We also use 
         <strong>有 (yǒu)</strong> to indicate the existence of a person or thing at a particular time or place. 
-        <br>
+        <br/>
         <strong> place/ time + 有 + noun </strong>
     </p>
 
@@ -303,7 +232,7 @@
                 <span data-word="" data-meaning="to develop" data-pinyin="fāzhǎn">發展</span>
                 <span data-word="" data-meaning="our" data-pinyin="wǒmen">我們</span>
                 <span data-word="" data-meaning="creativity " data-pinyin="chuàngyì">創意</span>
-                <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                 <span data-word="" data-meaning="opportunity" data-pinyin="jīhuì">機會</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
             </span>
@@ -325,12 +254,12 @@
                 <span data-word="" data-meaning="in front" data-pinyin="qián">前</span>
                 <span data-word="" data-meaning="(existential verb)" data-pinyin="yǒu">有</span>
                 <span data-word="" data-meaning="that" data-pinyin="nà">那</span>
-                <span data-word="" data-meaning="(classifier)" data-pinyin="gè">個</span>
+                <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                 <span data-word="" data-meaning="child" data-pinyin="háizi">孩子</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
             </span>
         </span>
-        <div class="pinyin">mén qián yǒu nà gè háizi 。 </div>
+        <div class="pinyin">mén qián yǒu nà ge háizi 。 </div>
         <div class="meaning"></div>
     </div>
     <div class="example-sentence">
@@ -373,36 +302,36 @@
         <strong> to learn about the usage of </strong>是 (shì)
         <strong>
         .
-            <br>
-            </strong></p><h2><strong>
+            <br/>
+            <h2>
                 <strong>有</strong> to introduce occurrences
-            </strong></h2><strong>
+            </h2>
         If we want to express that an event happens at a particular time or place, 
         </strong>
         有 (yǒu)
         <strong> could be a useful verb to use. </strong>有 (yǒu)
         <strong> connects a clause with the specific time or place that it takes place at. The subject of the clause must be indefinite in order to form a grammatical sentence with </strong>有 (yǒu)
         <strong>: 
-            <br>
+            <br/>
         </strong> time/place + 有 + clause with indefinite subject 
         <strong></strong>
-    <p></p>
+    </p>
 
     <div class="example-sentence">
         <span data-sentence="" class="chinese chinese-sentence">
             <span class="inner">
                 <span data-word="" data-meaning="yesterday" data-pinyin="zuótiān">昨天</span>
                 <span data-word="" data-meaning="(clause introducing verb)" data-pinyin="yǒu">有</span>
-                <span data-word="" data-meaning="(classifier)" data-pinyin="gè">個</span>
+                <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                 <span data-word="" data-meaning="teacher" data-pinyin="lǎoshī">老師</span>
                 <span data-word="" data-meaning="to come" data-pinyin="lái">來</span>
-                <span data-word="" data-meaning="(perfective marker)" data-pinyin="le" data-wordpage="了">了</span>
-                <span data-word="" data-meaning="my" data-pinyin="wǒ" data-wordpage="我">我</span>
+                <span data-word="" data-meaning="(perfective marker)" data-pinyin="le">了</span>
+                <span data-word="" data-meaning="my" data-pinyin="wǒ">我</span>
                 <span data-word="" data-meaning="home" data-pinyin="jiā">家</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
             </span>
         </span>
-        <div class="pinyin">zuótiān yǒu gè lǎoshī lái le wǒ jiā 。 </div>
+        <div class="pinyin">zuótiān yǒu ge lǎoshī lái le wǒ jiā 。 </div>
         <div class="meaning">A teacher came to my home yesterday.</div>
     </div>
     <div class="example-sentence">
@@ -410,34 +339,34 @@
             <span class="inner">
                 <span data-word="" data-meaning="here" data-pinyin="zhèlǐ">這裡</span>
                 <span data-word="" data-meaning="(clause introducing verb)" data-pinyin="yǒu">有</span>
-                <span data-word="" data-meaning="(classifier)" data-pinyin="gè">個</span>
+                <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                 <span data-word="" data-meaning="man" data-pinyin="nánzǐ">男子</span>
                 <span data-word="" data-meaning="to rape " data-pinyin="qiángjiān">強姦</span>
-                <span data-word="" data-meaning="(perfective marker)" data-pinyin="le" data-wordpage="了">了</span>
+                <span data-word="" data-meaning="(perfective marker)" data-pinyin="le">了</span>
                 <span data-word="" data-meaning="one" data-pinyin="yī">一</span>
-                <span data-word="" data-meaning="(classifier)" data-pinyin="gè">個</span>
+                <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                 <span data-word="" data-meaning="woman" data-pinyin="nǚrén">女人</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
             </span>
         </span>
-        <div class="pinyin">zhèlǐ yǒu gè nánzǐ qiángjiān le yī gè nǚrén 。 </div>
+        <div class="pinyin">zhèlǐ yǒu ge nánzǐ qiángjiān le yī ge nǚrén 。 </div>
         <div class="meaning">A man rapped a woman in here. </div>
     </div>
     <div class="example-sentence">
         <span data-sentence="" class="chinese chinese-sentence">
             <span class="inner">
                 <span data-word="" data-meaning="last" data-pinyin="shàng">上</span>
-                <span data-word="" data-meaning="(classifier)" data-pinyin="gè">個</span>
+                <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                 <span data-word="" data-meaning="week" data-pinyin="xīngqī">星期</span>
                 <span data-word="" data-meaning="(clause introducing verb)" data-pinyin="yǒu">有</span>
                 <span data-word="" data-meaning="tiger" data-pinyin="lǎohǔ">老虎</span>
                 <span data-word="" data-meaning="to eat" data-pinyin="chī">吃</span>
-                <span data-word="" data-meaning="(perfective marker)" data-pinyin="le" data-wordpage="了">了</span>
+                <span data-word="" data-meaning="(perfective marker)" data-pinyin="le">了</span>
                 <span data-word="" data-meaning="person" data-pinyin="rén">人</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
             </span>
         </span>
-        <div class="pinyin">shàng gè xīngqī yǒu lǎohǔ chī le rén 。 </div>
+        <div class="pinyin">shàng ge xīngqī yǒu lǎohǔ chī le rén 。 </div>
         <div class="meaning">A tiger ate a person last week.</div>
     </div>
     <div class="example-sentence">
@@ -461,7 +390,7 @@
     <p>
         If the place or time is already known in context to the hearer without stating it, or when they are not important or not known to the speaker, they can be omitted.　Therefore, 
         <strong>有 (yǒu)</strong> can introduce a clause without mentioning time or place it occurs: 
-        <br>
+        <br/>
         <strong> 有 + clause with indefinite subject </strong>
     </p>
 
@@ -495,7 +424,7 @@
                 <span data-word="" data-meaning="(clause introducing verb)" data-pinyin="yǒu">有</span>
                 <span data-word="" data-meaning="person" data-pinyin="rén">人</span>
                 <span data-word="" data-meaning="to steal" data-pinyin="tōu">偷</span>
-                <span data-word="" data-meaning="(perfective marker)" data-pinyin="le" data-wordpage="了">了</span>
+                <span data-word="" data-meaning="(perfective marker)" data-pinyin="le">了</span>
                 <span data-word="" data-meaning="my" data-pinyin="wǒ de">我的</span>
                 <span data-word="" data-meaning="wallet" data-pinyin="qiánbāo">錢包</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
@@ -515,12 +444,12 @@
 
     <p>
         <strong>有 (yǒu)</strong> can be used to specify how an entity is like by stating the degree or extent of its adjective or comparing one entity to another.
-        <br>When indicating the degree or extent of an adjective, 
+        <br/>When indicating the degree or extent of an adjective, 
         <strong>有 (yǒu)</strong> functions to connect a subject and its adjective phrase, giving expressions like how tall or how heavy a person is. 
         <strong>有 (yǒu)</strong>  must be followed by a numeral which specifies an adjective:
-        <br>
+        <br/>
         <strong> subject + 有 + numeral + adjective</strong>
-        <br>For example:
+        <br/>For example:
     </p>
    
     <div class="example-sentence">
@@ -540,7 +469,7 @@
     <div class="example-sentence">
         <span data-sentence="" class="chinese chinese-sentence">
             <span class="inner">
-                <span data-word="" data-meaning="I" data-pinyin="wǒ" data-wordpage="我">我</span>
+                <span data-word="" data-meaning="I" data-pinyin="wǒ">我</span>
                 <span data-word="" data-meaning="(adjective specifying verb)" data-pinyin="yǒu">有</span>
                 <span data-word="" data-meaning="thirty eight" data-pinyin="sānshíbā">三十八</span>
                 <span data-word="" data-meaning="kilogram" data-pinyin="gōngjīn">公斤</span>
@@ -587,7 +516,7 @@
     <div class="example-sentence">
         <span data-sentence="" class="chinese chinese-sentence">
             <span class="inner">
-                <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
+                <span data-word="" data-meaning="you" data-pinyin="nǐ">你</span>
                 <span data-word="" data-meaning="(adjective specifying verb)" data-pinyin="yǒu">有</span>
                 <span data-word="" data-meaning="how" data-pinyin="duō">多</span>
                 <span data-word="" data-meaning="heavy" data-pinyin="zhòng">重</span>
@@ -619,9 +548,9 @@
         <strong>那樣 (nàyàng)</strong> which mean 
         <em>that</em> or 
         <em>like that</em> in the sentence as well. Its structural formula is as the following: 
-        <br>
+        <br/>
         <strong> entity A + 有 + entity B + (那麼/那樣) + adjective </strong>
-        <br>For example:
+        <br/>For example:
     </p>
    
     <div class="example-sentence">
@@ -643,9 +572,9 @@
     <div class="example-sentence">
         <span data-sentence="" class="chinese chinese-sentence">
             <span class="inner">
-                <span data-word="" data-meaning="I" data-pinyin="wǒ" data-wordpage="我">我</span>
+                <span data-word="" data-meaning="I" data-pinyin="wǒ">我</span>
                 <span data-word="" data-meaning="(adjective specifying verb)" data-pinyin="yǒu">有</span>
-                <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
+                <span data-word="" data-meaning="you" data-pinyin="nǐ">你</span>
                 <span data-word="" data-meaning="that" data-pinyin="nàme">(那麼)</span>
                 <span data-word="" data-meaning="heavy" data-pinyin="zhòng">重</span>
                 <span data-word="" data-meaning="" data-pinyin="。">。</span>
@@ -671,37 +600,4 @@
     </div>
 </div>
 
-
-
-
-
-
-<footer style="background-color: rgb(230,230,230);padding-top: 20px; padding-bottom: 20px; margin-top: 20px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">        
-                <h3>Support us!</h3>
-                <p>We'd love to keep this website a free product forever. Please consider supporting us!</p>
-                <p><a href="https://patreon.com/readchineseonline">Support us on Patreon</a></p>
-            </div>
-            <div class="col-sm-6">
-                <h3>RCO on Social Media</h3>
-                <a href="https://facebook.com/readchineseonline">Facebook</a><br>
-                <a href="https://twitter.com/readchinese">Twitter</a>
-            </div>
-        </div>
-        <hr>
-        <p>© Read Chinese Online 2018</p>
-    </div>
-</footer>
-
-
-<script>
-let PREFIX = '/rco';
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="/rco/assets/js/tongwen/tongwen-ts.js"></script>
-<script src="/rco/assets/js/rco.js"></script>
-
-
-</body></html>
+{% endblock %}
