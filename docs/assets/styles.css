@@ -6499,6 +6499,15 @@ em {
     [data-word][data-wordpage]:hover {
       text-decoration: underline; }
 
+h1 [data-word] {
+  font-size: 38px; }
+
+h2 [data-word] {
+  font-size: 32px; }
+
+h3 [data-word] {
+  font-size: 28px; }
+
 [data-highlight] {
   cursor: default; }
   [data-highlight].highlighted {
