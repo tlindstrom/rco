@@ -37,10 +37,10 @@ h3 [data-word]{ font-size: 28px; }
     box-shadow: 0px 1px 20px 0 rgba(0,0,0,0.1);
     border-radius: 3px;
     background-color: white;
-    padding: 20px;
+    padding: 5px 10px;
 
     text-align: center;
-    transform: translate(-50%, calc(-100% - 30px));
+    transform: translate(-50%, calc(-100% - 20px));
 
     .chinese {
         font-size: 35px;
