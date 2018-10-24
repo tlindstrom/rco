@@ -8,7 +8,7 @@ let cheerio = require('cheerio');
 let hskVocabulary = require('./source/misc/hsk-vocabulary.json');
 
 let data = {
-    prefix: '/rco',
+    prefix: '',
 }; 
 
 
