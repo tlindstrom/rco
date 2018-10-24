@@ -9,6 +9,7 @@ let hskVocabulary = require('./source/misc/hsk-vocabulary.json');
 
 let data = {
     prefix: '',
+    cname: 'readchineseonline.com'
 }; 
 
 
@@ -131,7 +132,7 @@ console.log('DELETING AND RECREATING dist DIRECTORY');
 rimraf.sync(__dirname + '/dist');
 fs.mkdirSync(__dirname + '/dist');
 
-
+fs.writeFileSync("./dist/CNAME", data.cname);
 
 
 // render page tree
@@ -170,7 +171,6 @@ let renderedCss = sass.renderSync({
     file: __dirname + '/source/assets/scss/styles.scss'
 }).css;
 fs.writeFileSync("./dist/assets/styles.css", renderedCss);
-
 
 console.log("\n--- COMPILATION DONE ---\n");
 
