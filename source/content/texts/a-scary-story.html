@@ -1,100 +1,45 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{
+    title: "A Scary Story",
+    description: "",
+    "hskLevel": 1,
+}
+---
 
- 
-    <title>A Scary Story - Read Chinese Online</title>
-    <link rel="stylesheet" type="text/css" href="/assets/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-</head>
-
-
-<!-- body is hidden until initial front end transforms are applied -->
-<body style="display: none;">
-
-<div id="wordbox">
-    <div class="chinese"></div>
-    <div class="pinyin"></div>
-    <div class="meaning"></div>
-</div>
-
-<div id="word-dropdown">
-    <div class="choice" id="listen-to-word"><i class="fas fa-volume-up"></i>   Listen to word</div>
-    <div class="choice" id="listen-to-sentence"><i class="fas fa-volume-up"></i>   Listen to sentence</div>
-    <a class="choice" id="learn-more"><i class="fas fa-book"></i>   Learn More</a>
-</div>
-
-<div class="top-bar">
-    <div class="container">
-        <div class="inner">
-            <div>
-                <a class="btn btn-link logo" href="/"><span class="brand">中文</span> Read Chinese Online</a>
-                <a class="btn btn-link logo" href="/texts">Parallel Texts</a>
-                <a class="btn btn-link logo" href="/words">Lexicon</a>
-            </div>
-            <div id="script-buttons">
-                <span id="script-button-traditional">Traditional</span>
-                <span id="script-button-simplified">Simplified</span>
-            </div>
-        </div>
-    </div>
-</div>
-<div style="padding: 5px 0; background-color: rgb(240,240,240);">
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background: none; padding: 0; margin: 0;">
-                
-                <li class="breadcrumb-item ">
-                    
-                        <a href="/index.html">Home</a>
-                    
-                </li>
-                
-                <li class="breadcrumb-item ">
-                    
-                        <a href="/texts/index.html">Parallel Texts</a>
-                    
-                </li>
-                
-                <li class="breadcrumb-item active">
-                    
-                        A Scary Story
-                    
-                </li>
-                
-            </ol>
-        </nav>
-    </div>
-</div>
-
-
-
-<!--
-
-<div class="container">
-    <h1>A Scary Story</h1>
-    <h2></h2>
-    <h3>HSK Level: 2</h3>
-</div>
-
--->
-
-<div class="rco-article">
-    
+{% extends "text.html" %}
+{% block text %}
 
 <div class="container">
     <table class="ptext">
-        <tbody><tr>
+        <tbody>
+
+            <tr class="ptext-title">
+                <td>
+                    <span data-sentence="" class="chinese chinese-sentence">
+                        <span class="inner">
+                            <span data-word="" data-meaning="a" data-pinyin="yī">一</span>
+                            <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
+                            <span data-word="" data-meaning="scary" data-pinyin="kěpà">可怕</span>
+                            <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
+                            <span data-word="" data-meaning="story" data-pinyin="gùshì">故事</span>    
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span>A Scary Story</span>
+                </td>
+            </tr>
+        <tr>
+        <tr>
             <td>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
                         <span data-word="" data-meaning="this" data-pinyin="zhè">這</span>
-                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="is" data-pinyin="shì">是</span>
                         <span data-word="" data-meaning="a" data-pinyin="yī">一</span>
                         <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                         <span data-word="" data-meaning="very" data-pinyin="fēicháng">非常</span>
                         <span data-word="" data-meaning="interesting" data-pinyin="yǒuqù">有趣</span>
-                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                         <span data-word="" data-meaning="story" data-pinyin="gùshi">故事</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
                     </span>
@@ -102,22 +47,22 @@
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
                         <span data-word="" data-meaning="also" data-pinyin="yě">也</span>
-                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="is" data-pinyin="shì">是</span>
                         <span data-word="" data-meaning="a" data-pinyin="yī">一</span>
                         <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                         <span data-word="" data-meaning="very" data-pinyin="fēicháng">非常</span>
                         <span data-word="" data-meaning="scary" data-pinyin="kěpà">可怕</span>
-                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                         <span data-word="" data-meaning="ghost story" data-pinyin="guǐgùshi">鬼故事</span>
                         <span data-word="" data-meaning="" data-pinyin="！">！</span>
                     </span>
                 </span>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
-                        <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
+                        <span data-word="" data-meaning="you" data-pinyin="nǐ">你</span>
                         <span data-word="" data-meaning="ready" data-pinyin="zhǔnbèihǎo">準備好</span>
-                        <span data-word="" data-meaning="(perfective marker)" data-pinyin="le" data-wordpage="了">了</span>
-                        <span data-word="" data-meaning="(question marker)" data-pinyin="ma" data-wordpage="嗎">嗎</span>
+                        <span data-word="" data-meaning="(perfective marker)" data-pinyin="le">了</span>
+                        <span data-word="" data-meaning="(question marker)" data-pinyin="ma">嗎</span>
                         <span data-word="" data-meaning="" data-pinyin="？">？</span>
                     </span>
                 </span>
@@ -132,29 +77,29 @@
             <td>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
-                        <span data-word="" data-meaning="I" data-pinyin="wǒ" data-wordpage="我">我</span>
-                        <span data-word="" data-meaning="to hope" data-pinyin="xīwàng">希望</span>
-                        <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
-                        <span data-word="" data-meaning="not" data-pinyin="bù" data-wordpage="不">不</span>
-                        <span data-word="" data-meaning="to fear of " data-pinyin="pà">怕</span>
-                        <span data-word="" data-meaning="ghost" data-pinyin="guǐ">鬼</span>
+                        <span data-word="" data-meaning="I" data-pinyin="wǒ">我</span>
+                        <span data-word="" data-meaning="hope" data-pinyin="xīwàng">希望</span>
+                        <span data-word="" data-meaning="you" data-pinyin="nǐ">你</span>
+                        <span data-word="" data-meaning="not" data-pinyin="bù">不</span>
+                        <span data-word="" data-meaning="fear" data-pinyin="pà">怕</span>
+                        <span data-word="" data-meaning="ghosts" data-pinyin="guǐ">鬼</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
                     </span>
                 </span>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
                         <span data-word="" data-meaning="if" data-pinyin="rúguǒ">如果</span>
-                        <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
+                        <span data-word="" data-meaning="you" data-pinyin="nǐ">你</span>
                         <span data-word="" data-meaning="in" data-pinyin="zài">在</span>
                         <span data-word="" data-meaning="night" data-pinyin="wǎnshàng">晚上</span>
-                        <span data-word="" data-meaning="to read" data-pinyin="dú">讀</span>
+                        <span data-word="" data-meaning="read" data-pinyin="dú">讀</span>
                         <span data-word="" data-meaning="this" data-pinyin="zhège">這</span>
                         <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                         <span data-word="" data-meaning="story" data-pinyin="gùshi">故事</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
                         <span data-word="" data-meaning="for sure" data-pinyin="yīdìng">一定</span>
                         <span data-word="" data-meaning="will" data-pinyin="huì">會</span>
-                        <span data-word="" data-meaning="to make" data-pinyin="zuò">做</span>
+                        <span data-word="" data-meaning="make" data-pinyin="zuò">做</span>
                         <span data-word="" data-meaning="nightmare" data-pinyin="èmèng">惡夢</span>
                         <span data-word="" data-meaning="" data-pinyin="！">！</span>
                     </span>
@@ -170,11 +115,11 @@
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
                         <span data-word="" data-meaning="this" data-pinyin="zhè">這</span>
-                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="is" data-pinyin="shì">是</span>
                         <span data-word="" data-meaning="a" data-pinyin="yī">一</span>
                         <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                         <span data-word="" data-meaning="dark" data-pinyin="hēiàn">黑暗</span>
-                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                         <span data-word="" data-meaning="evening" data-pinyin="bàngwǎn">傍晚</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
                     </span>
@@ -194,37 +139,37 @@
                     <span class="inner">
                         <span data-word="" data-meaning="suddenly" data-pinyin="tūrán">突然</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
-                        <span data-word="" data-meaning="he" data-pinyin="tā" data-wordpage="他">他</span>
-                        <span data-word="" data-meaning="to hear" data-pinyin="tīng">聽</span>
+                        <span data-word="" data-meaning="he" data-pinyin="tā">他</span>
+                        <span data-word="" data-meaning="hear" data-pinyin="tīng">聽</span>
                         <span data-word="" data-meaning="(result complement)" data-pinyin="dào">到</span>
                         <span data-word="" data-meaning="a" data-pinyin="yī">一</span>
                         <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
-                        <span data-word="" data-meaning="very" data-pinyin="hěn" data-wordpage="很">很</span>
+                        <span data-word="" data-meaning="very" data-pinyin="hěn">很</span>
                         <span data-word="" data-meaning="loud" data-pinyin="dàshēng">大聲</span>
                         <span data-word="" data-meaning="and" data-pinyin="hé">和</span>
                         <span data-word="" data-meaning="scary" data-pinyin="kěpà">可怕</span>
-                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                         <span data-word="" data-meaning="sound" data-pinyin="shēngyīn">聲音</span>
                         <span data-word="" data-meaning="" data-pinyin="！">！</span>
                     </span>
                 </span>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
-                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="is" data-pinyin="shì">是</span>
                         <span data-word="" data-meaning="what" data-pinyin="shénme">什麼</span>
                         <span data-word="" data-meaning="sound" data-pinyin="shēngyīn">聲音</span>
-                        <span data-word="" data-meaning="(question marker)" data-pinyin="ne">呢</span>
+                        <span data-word="" data-meaning="(question particle)" data-pinyin="ne">呢</span>
                         <span data-word="" data-meaning="" data-pinyin="？">？</span>
                     </span>
                 </span>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
-                        <span data-word="" data-meaning="he" data-pinyin="tā" data-wordpage="他">他</span>
+                        <span data-word="" data-meaning="he" data-pinyin="tā">他</span>
                         <span data-word="" data-meaning="this" data-pinyin="zhè">這</span>
                         <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                         <span data-word="" data-meaning="time" data-pinyin="shíhòu">時候</span>
                         <span data-word="" data-meaning="alone" data-pinyin="dúzì">獨自</span>
-                        <span data-word="" data-meaning="to be at" data-pinyin="zài">在</span>
+                        <span data-word="" data-meaning="at" data-pinyin="zài">在</span>
                         <span data-word="" data-meaning="house" data-pinyin="jiā">家</span>
                         <span data-word="" data-meaning="inside" data-pinyin="lǐ">裡</span>
                         <span data-word="" data-meaning="" data-pinyin="。">。</span>
@@ -244,14 +189,14 @@
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
                         <span data-word="" data-meaning="Mr. Wang" data-pinyin="wángxiānshēng">王先生</span>
-                        <span data-word="" data-meaning="to leave" data-pinyin="líkāi">離開</span>
+                        <span data-word="" data-meaning="leave" data-pinyin="líkāi">離開</span>
                         <span data-word="" data-meaning="his" data-pinyin="tāde">他的</span>
                         <span data-word="" data-meaning="chair" data-pinyin="yǐzǐ">椅子</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
-                        <span data-word="" data-meaning="to" data-pinyin="qù">去</span>
-                        <span data-word="" data-meaning="to see" data-pinyin="kànkan">看看</span>
+                        <span data-word="" data-meaning="go" data-pinyin="qù">去</span>
+                        <span data-word="" data-meaning="take a look" data-pinyin="kànkan">看看</span>
                         <span data-word="" data-meaning="(question intensifying particle)" data-pinyin="jiūjìng">究竟</span>
-                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="to be" data-pinyin="shì">是</span>
                         <span data-word="" data-meaning="what" data-pinyin="shénme">什麼</span>
                         <span data-word="" data-meaning="sound" data-pinyin="shēngyīn">聲音</span>
                         <span data-word="" data-meaning="" data-pinyin="。">。</span>
@@ -259,8 +204,8 @@
                 </span>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
-                        <span data-word="" data-meaning="he" data-pinyin="tā" data-wordpage="他">他</span>
-                        <span data-word="" data-meaning="very" data-pinyin="hěn" data-wordpage="很">很</span>
+                        <span data-word="" data-meaning="he" data-pinyin="tā">他</span>
+                        <span data-word="" data-meaning="very" data-pinyin="hěn">很</span>
                         <span data-word="" data-meaning="nervous" data-pinyin="jǐnzhāng">緊張</span>
                         <span data-word="" data-meaning="" data-pinyin="。">。</span>
                     </span>
@@ -268,7 +213,7 @@
             </td>
             <td>
                 <span>Mr. Wang got out of his chair and went to see what it was.</span>
-                <span>He was very nervous.</span>
+                <span>He was nervous.</span>
             </td>
         </tr>
         <tr>
@@ -276,12 +221,12 @@
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
                         <span data-word="" data-meaning="sound" data-pinyin="shēngyīn">聲音</span>
-                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="is" data-pinyin="shì">是</span>
                         <span data-word="" data-meaning="from" data-pinyin="cóng">從</span>
                         <span data-word="" data-meaning="house" data-pinyin="fángzǐ">房子</span>
                         <span data-word="" data-meaning="outside" data-pinyin="wàimiàn">外面</span>
-                        <span data-word="" data-meaning="to come" data-pinyin="chuánlái">傳來</span>
-                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                        <span data-word="" data-meaning="to be heard" data-pinyin="chuánlái">傳來</span>
+                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
                     </span>
                 </span>
@@ -290,14 +235,14 @@
                         <span data-word="" data-meaning="so" data-pinyin="suǒyǐ">所以</span>
                         <span data-word="" data-meaning="Mr. Wang" data-pinyin="wángxiānshēng">王先生</span>
                         <span data-word="" data-meaning="slowly" data-pinyin="mànmàn">慢慢</span>
-                        <span data-word="" data-meaning="to open" data-pinyin="dǎkāi">打開</span>
+                        <span data-word="" data-meaning="opens" data-pinyin="dǎkāi">打開</span>
                         <span data-word="" data-meaning="door" data-pinyin="mén">門</span>
                         <span data-word="" data-meaning="" data-pinyin="。">。</span>
                     </span>
                 </span>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
-                        <span data-word="" data-meaning="(existential verb)" data-pinyin="yǒu">有</span>
+                        <span data-word="" data-meaning="have" data-pinyin="yǒu">有</span>
                         <span data-word="" data-meaning="ghost" data-pinyin="guǐ">鬼</span>
                         <span data-word="" data-meaning="" data-pinyin="！">！</span>
                     </span>
@@ -306,8 +251,8 @@
                     <span class="inner">
                         <span data-word="" data-meaning="ghost" data-pinyin="guǐ">鬼</span>
                         <span data-word="" data-meaning="to eat" data-pinyin="chī">吃</span>
-                        <span data-word="" data-meaning="(perfective marker)" data-pinyin="le" data-wordpage="了">了</span>
-                        <span data-word="" data-meaning="him" data-pinyin="tā" data-wordpage="他">他</span>
+                        <span data-word="" data-meaning="(completed action particle)" data-pinyin="le">了</span>
+                        <span data-word="" data-meaning="him" data-pinyin="tā">他</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
                     </span>
                 </span>
@@ -320,8 +265,8 @@
                         <span data-word="" data-meaning="again" data-pinyin="zài">再</span>
                         <span data-word="" data-meaning="to see" data-pinyin="jiàn">見</span>
                         <span data-word="" data-meaning="(experiential marker)" data-pinyin="guò">過</span>
-                        <span data-word="" data-meaning="him" data-pinyin="tā" data-wordpage="他">他</span>
-                        <span data-word="" data-meaning="(perfective marker)" data-pinyin="le" data-wordpage="了">了</span>
+                        <span data-word="" data-meaning="him" data-pinyin="tā">他</span>
+                        <span data-word="" data-meaning="(perfective marker)" data-pinyin="le">了</span>
                         <span data-word="" data-meaning="" data-pinyin="。">。</span>
                     </span>
                 </span>
@@ -338,17 +283,17 @@
             <td>
                 <span data-sentence="" class="chinese chinese-sentence">
                     <span class="inner">
-                        <span data-word="" data-meaning="I" data-pinyin="wǒ" data-wordpage="我">我</span>
+                        <span data-word="" data-meaning="I" data-pinyin="wǒ">我</span>
                         <span data-word="" data-meaning="to tell" data-pinyin="gàosù">告訴</span>
-                        <span data-word="" data-meaning="(perfective marker)" data-pinyin="le" data-wordpage="了">了</span>
-                        <span data-word="" data-meaning="you" data-pinyin="nǐ" data-wordpage="你">你</span>
+                        <span data-word="" data-meaning="(perfective marker)" data-pinyin="le">了</span>
+                        <span data-word="" data-meaning="you" data-pinyin="nǐ">你</span>
                         <span data-word="" data-meaning="" data-pinyin="，">，</span>
                         <span data-word="" data-meaning="it" data-pinyin="zhè">這</span>
-                        <span data-word="" data-meaning="to be" data-pinyin="shì" data-wordpage="是">是</span>
+                        <span data-word="" data-meaning="to be" data-pinyin="shì">是</span>
                         <span data-word="" data-meaning="a" data-pinyin="yīge">一</span>
                         <span data-word="" data-meaning="(classifier)" data-pinyin="ge">個</span>
                         <span data-word="" data-meaning="scary" data-pinyin="kěpà">可怕</span>
-                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de" data-wordpage="的">的</span>
+                        <span data-word="" data-meaning="(adjectivizing particle)" data-pinyin="de">的</span>
                         <span data-word="" data-meaning="story" data-pinyin="gùshi">故事</span>
                         <span data-word="" data-meaning="" data-pinyin="！">！</span>
                     </span>
@@ -361,36 +306,4 @@
     </tbody></table>
 </div>
 
-
-</div>
-
-
-
-
-<footer style="background-color: rgb(245,245,245); padding: 50px 0; margin-top: 50px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">        
-                <h3>Support RCO</h3>
-                <p>Our goal is for <strong>Read Chinese Online</strong> to remain completely free forever. To make this possible in the long run, and to help us continuously expand and improve our content, please consider supporting us on Patreon!</p>
-                <p><a href="https://patreon.com/readchineseonline"><i class="fab fa-fw fa-patreon"></i> RCO on Patreon</a></p>
-            </div>
-            <div class="col-sm-6">
-                <h3>Follow us on Social Media</h3>
-                <a href="https://facebook.com/readchineseonline"><i class="fab fa-fw fa-facebook-square"></i> RCO on Facebook</a><br>
-                <a href="https://twitter.com/readchinese"><i class="fab fa-fw fa-twitter-square"></i> RCO on Twitter</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-<script>
-let PREFIX = '';
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="/assets/js/tongwen/tongwen-ts.js"></script>
-<script src="/assets/js/rco.js"></script>
-
-
-</body></html>
+{% endblock %}
