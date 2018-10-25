@@ -54,6 +54,11 @@ $(document).ready(function(){
             $('#wordbox').hide();
         });
 
+        // stop touch on touch devide from triggering a click
+        $(this).on('touchend', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+        });
         $(this).click(function(){
             // TO DO: maybe cancel this on phones and tablets
             if ($(this).attr('data-wordpage'))
