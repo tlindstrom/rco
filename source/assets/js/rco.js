@@ -13,6 +13,11 @@ let rco = {
 
 $(document).ready(function(){
 
+    // stop touch on touch devide from triggering a click (but still show wordbox)
+    $(document).on('touchend', function(e){
+        TOUCH_DETECTED = true;
+    });
+
     $('#script-button-traditional').off('click').on('click', function() {
         window.localStorage.setItem('rcoScript', 'traditional');
         location.reload();
@@ -57,10 +62,6 @@ $(document).ready(function(){
             $('#wordbox').hide();
         });
 
-        // stop touch on touch devide from triggering a click (but still show wordbox)
-        $(this).on('touchend', function(e){
-            TOUCH_DETECTED = true;
-        });
         $(this).click(function(){
             if (!TOUCH_DETECTED && $(this).attr('data-wordpage'))
                 window.location = PREFIX + '/words/' + $(this).attr('data-wordpage') + '.html';
