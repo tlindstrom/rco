@@ -52,6 +52,15 @@ h3 [data-word]{ font-size: 28px; }
         font-size: 18px;
         font-style: italic;
     }
+
+    @media(max-width: 600px){
+        position: fixed;
+        top: inherit !important;
+        right: 10px  !important;
+        bottom: 10px !important;
+        left: inherit !important;
+        transform: none;
+    }
 }
 
 #word-dropdown {

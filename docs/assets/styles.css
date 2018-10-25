@@ -6529,6 +6529,14 @@ h3 [data-word] {
   #wordbox .meaning {
     font-size: 18px;
     font-style: italic; }
+  @media (max-width: 600px) {
+    #wordbox {
+      position: fixed;
+      top: inherit !important;
+      right: 10px  !important;
+      bottom: 10px !important;
+      left: inherit !important;
+      transform: none; } }
 
 #word-dropdown {
   display: none;
