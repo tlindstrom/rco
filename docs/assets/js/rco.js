@@ -1,3 +1,6 @@
+// turn to true when touch events fire, to turn off left click functionality that breaks phone experience
+var TOUCH_DETECTED = false;
+
 let rco = {
     // pronounce a Chinese phrase using the browser text to speech API
     pronounce(phrase) {
@@ -56,13 +59,10 @@ $(document).ready(function(){
 
         // stop touch on touch devide from triggering a click (but still show wordbox)
         $(this).on('touchend', function(e){
-            openWordbox($(this));
-            e.preventDefault();
-            e.stopPropagation();
+            TOUCH_DETECTED = true;
         });
         $(this).click(function(){
-            // TO DO: maybe cancel this on phones and tablets
-            if ($(this).attr('data-wordpage'))
+            if (!TOUCH_DETECTED && $(this).attr('data-wordpage'))
                 window.location = PREFIX + '/words/' + $(this).attr('data-wordpage') + '.html';
         });
 
