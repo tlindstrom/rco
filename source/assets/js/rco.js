@@ -1,4 +1,4 @@
-var CAN_HOVER = false;
+var TOUCH_DETECTED = false;
 
 let rco = {
     // pronounce a Chinese phrase using the browser text to speech API
@@ -12,10 +12,9 @@ let rco = {
 
 $(document).ready(function(){
 
-    // stop touch on touch devide from triggering a click (but still show wordbox)
-    
-    $(document).on('mouseover', function(e){
-        CAN_HOVER = true;
+    document.body.addEventListener('touchstart', function () {
+        console.log("canhover");
+        TOUCH_DETECTED = true;
     });
     
 
@@ -64,7 +63,7 @@ $(document).ready(function(){
         });
 
         $(this).click(function(){
-            if (CAN_HOVER && $(this).attr('data-wordpage'))
+            if (!TOUCH_DETECTED && $(this).attr('data-wordpage'))
                 window.location = PREFIX + '/words/' + $(this).attr('data-wordpage') + '.html';
         });
 
