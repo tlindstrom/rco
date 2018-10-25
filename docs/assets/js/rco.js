@@ -34,28 +34,29 @@ $(document).ready(function(){
     $('body').show();
 
 
+    function openWordbox(element) {
+        let chinese = element.html();
+        let pinyin  = element.attr('data-pinyin');
+        let meaning = element.attr('data-meaning');
 
+        $('#wordbox').find(".chinese").html(chinese);
+        $('#wordbox').find(".pinyin").html(pinyin);
+        $('#wordbox').find(".meaning").html(meaning);
+        $('#wordbox').show();
+    }
 
     $('[data-word]').each(function(){
         $(this).mouseenter(function(){
-
-            let chinese = $(this).html();
-            let pinyin  = $(this).attr('data-pinyin');
-            let meaning = $(this).attr('data-meaning');
-
-            $('#wordbox').find(".chinese").html(chinese);
-            $('#wordbox').find(".pinyin").html(pinyin);
-            $('#wordbox').find(".meaning").html(meaning);
-            $('#wordbox').show();
-
+            openWordbox($(this));
         });
 
         $(this).mouseleave(function(){
             $('#wordbox').hide();
         });
 
-        // stop touch on touch devide from triggering a click
+        // stop touch on touch devide from triggering a click (but still show wordbox)
         $(this).on('touchend', function(e){
+            openWordbox($(this));
             e.preventDefault();
             e.stopPropagation();
         });
