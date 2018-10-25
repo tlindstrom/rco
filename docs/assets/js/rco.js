@@ -15,8 +15,7 @@ $(document).ready(function(){
 
     // stop touch on touch devide from triggering a click (but still show wordbox)
     
-    $(document).on('touchend', function(e){
-        console.log("toucheeed");
+    $(document).on('touchstart', function(e){
         TOUCH_DETECTED = true;
     });
     
