@@ -55,9 +55,9 @@ h3 [data-word]{ font-size: 28px; }
 
     @media(max-width: 600px){
         position: fixed;
-        top: inherit !important;
+        top: 10px !important;
         right: 10px  !important;
-        bottom: 10px !important;
+        bottom: inherit !important;
         left: inherit !important;
         transform: none;
     }
