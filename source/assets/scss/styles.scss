@@ -46,8 +46,7 @@ em {
 
         .top-bar-nav {
 
-            display: flex;
-            flex-direction: row;
+            position: relative;
 
             .logo {
 
@@ -66,12 +65,25 @@ em {
                     color: red;
                     font-weight: 700;
                 }
-
             }
 
+
             .top-bar-links {
-                display: flex;
-                flex-direction: row;
+                position: absolute;
+                border: 1px solid rgb(240,240,240);
+                border-top: 1px solid white;
+                background-color: white;
+                top: 100%;
+                width: max-content;
+
+                a {
+                    display: block;
+                    padding: 10px 20px;
+
+                    &:hover {
+                        background-color: rgb(250,250,250);
+                    }
+                }
             }
 
         }

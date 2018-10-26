@@ -6461,8 +6461,7 @@ em {
     flex-direction: row;
     justify-content: space-between; }
     .top-bar .inner .top-bar-nav {
-      display: flex;
-      flex-direction: row; }
+      position: relative; }
       .top-bar .inner .top-bar-nav .logo {
         color: #1e1e1e;
         margin-left: -10px; }
@@ -6474,8 +6473,17 @@ em {
           color: red;
           font-weight: 700; }
       .top-bar .inner .top-bar-nav .top-bar-links {
-        display: flex;
-        flex-direction: row; }
+        position: absolute;
+        border: 1px solid #f0f0f0;
+        border-top: 1px solid white;
+        background-color: white;
+        top: 100%;
+        width: max-content; }
+        .top-bar .inner .top-bar-nav .top-bar-links a {
+          display: block;
+          padding: 10px 20px; }
+          .top-bar .inner .top-bar-nav .top-bar-links a:hover {
+            background-color: #fafafa; }
 
 #script-buttons {
   display: flex;

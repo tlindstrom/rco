@@ -141,7 +141,19 @@ $(document).ready(function(){
     });
 
     $(document).mousemove(function( event ) {
-    $('#wordbox').css({left: event.pageX, top: event.pageY });
+        $('#wordbox').css({left: event.pageX, top: event.pageY });
+    });
+
+    // top menu show and hide stuff
+    $('#home-button').mouseenter(function(){
+        $('.top-bar-links').show();
+    });
+    $('#home-button').click(function(){
+        $('.top-bar-links').toggle();
+    });
+    $(document).click(function(){
+        if (!$(event.target).is('#home-button'))
+            $('.top-bar-links').hide();
     });
 
 
