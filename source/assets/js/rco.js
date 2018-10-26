@@ -13,7 +13,6 @@ let rco = {
 $(document).ready(function(){
 
     document.body.addEventListener('touchstart', function () {
-        console.log("canhover");
         TOUCH_DETECTED = true;
     });
     
@@ -146,14 +145,18 @@ $(document).ready(function(){
 
     // top menu show and hide stuff
     $('#home-button').mouseenter(function(){
+        console.log("mouseenter");
         $('.top-bar-links').show();
     });
     $('#home-button').click(function(){
-        $('.top-bar-links').toggle();
+        console.log("click on");
+        $('.top-bar-links').show();
     });
     $(document).click(function(){
-        if (!$(event.target).is('#home-button'))
+        if (!$(event.target).is('#home-button')){
+            console.log("click outside");
             $('.top-bar-links').hide();
+        }
     });
 
 
