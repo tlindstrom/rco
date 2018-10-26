@@ -6471,7 +6471,8 @@ em {
           background-color: #fafafa; }
         .top-bar .inner .top-bar-nav .logo .brand {
           color: red;
-          font-weight: 700; }
+          font-weight: 700;
+          pointer-events: none; }
       .top-bar .inner .top-bar-nav .top-bar-links {
         position: absolute;
         border: 1px solid #f0f0f0;
