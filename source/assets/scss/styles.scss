@@ -130,6 +130,25 @@ em {
     }
 }
 
+.frontpage-jumbo {
+    color: white;
+    text-align: center;
+    border-radius: 0;
+    padding: 150px 0;
+
+    h1 {
+        font-size: 50px;
+    }
+
+    @media (max-width: $breakpoint) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        h1 {
+            font-size: 25px;
+        }
+    }
+}
 
 
 
