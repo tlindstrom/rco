@@ -459,13 +459,13 @@ pre {
   margin-left: auto; }
   @media (min-width: 576px) {
     .container {
-      max-width: 540px; } }
+      max-width: 1137px; } }
   @media (min-width: 768px) {
     .container {
-      max-width: 720px; } }
+      max-width: 1138px; } }
   @media (min-width: 992px) {
     .container {
-      max-width: 960px; } }
+      max-width: 1139px; } }
   @media (min-width: 1200px) {
     .container {
       max-width: 1140px; } }
@@ -6460,16 +6460,22 @@ em {
     display: flex;
     flex-direction: row;
     justify-content: space-between; }
-    .top-bar .inner .logo {
-      color: #1e1e1e;
-      margin-left: -10px; }
-      .top-bar .inner .logo:hover, .top-bar .inner .logo:visited, .top-bar .inner .logo:link, .top-bar .inner .logo:active {
-        text-decoration: none; }
-      .top-bar .inner .logo:hover {
-        background-color: #fafafa; }
-      .top-bar .inner .logo .brand {
-        color: red;
-        font-weight: 700; }
+    .top-bar .inner .top-bar-nav {
+      display: flex;
+      flex-direction: row; }
+      .top-bar .inner .top-bar-nav .logo {
+        color: #1e1e1e;
+        margin-left: -10px; }
+        .top-bar .inner .top-bar-nav .logo:hover, .top-bar .inner .top-bar-nav .logo:visited, .top-bar .inner .top-bar-nav .logo:link, .top-bar .inner .top-bar-nav .logo:active {
+          text-decoration: none; }
+        .top-bar .inner .top-bar-nav .logo:hover {
+          background-color: #fafafa; }
+        .top-bar .inner .top-bar-nav .logo .brand {
+          color: red;
+          font-weight: 700; }
+      .top-bar .inner .top-bar-nav .top-bar-links {
+        display: flex;
+        flex-direction: row; }
 
 #script-buttons {
   display: flex;
@@ -6487,6 +6493,10 @@ em {
     #script-buttons #script-button-traditional.chosen, #script-buttons #script-button-simplified.chosen {
       color: black;
       text-decoration: underline; }
+
+@media (max-width: 991px) {
+  .breadcrumb-area {
+    display: none; } }
 
 [data-word] {
   cursor: default; }
@@ -6529,7 +6539,7 @@ h3 [data-word] {
   #wordbox .meaning {
     font-size: 18px;
     font-style: italic; }
-  @media (max-width: 600px) {
+  @media (max-width: 991px) {
     #wordbox {
       position: fixed;
       top: 10px !important;
