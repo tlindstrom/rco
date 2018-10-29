@@ -66,10 +66,10 @@ $(document).ready(function(){
                 window.location = PREFIX + '/words/' + $(this).attr('data-wordpage') + '.html';
         });
 
-        $(this).contextmenu(function(){
+        $(this).contextmenu(function(e){
             let wordElement = $(this);
 
-            $('#word-dropdown').css({ left: event.pageX-5, top: event.pageY-5 });
+            $('#word-dropdown').css({ left: e.pageX-5, top: e.pageY-5 });
             $('#word-dropdown').show();
 
             // listening to word
@@ -97,6 +97,7 @@ $(document).ready(function(){
                 $('#word-dropdown #learn-more').hide();
             }
 
+            e.preventDefault();
             // return false to block the standard context menu
             return false;
         });
@@ -139,22 +140,19 @@ $(document).ready(function(){
 
     });
 
-    $(document).mousemove(function( event ) {
-        $('#wordbox').css({left: event.pageX, top: event.pageY });
+    $(document).mousemove(function(e) {
+        $('#wordbox').css({left: e.pageX, top: e.pageY });
     });
 
     // top menu show and hide stuff
     $('#home-button').mouseenter(function(){
-        console.log("mouseenter");
         $('.top-bar-links').show();
     });
     $('#home-button').click(function(){
-        console.log("click on");
         $('.top-bar-links').show();
     });
-    $(document).click(function(){
-        if (!$(event.target).is('#home-button')){
-            console.log("click outside");
+    $(document).click(function(e){
+        if (!$(e.target).is('#home-button')){
             $('.top-bar-links').hide();
         }
     });
