@@ -12,15 +12,18 @@ $highlight-color-2: #9CD9FF;
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Raleway');
 body{
     font-size: 17px;
-    font-weight: 300;
-}
+
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: Raleway;
 }
 
 strong {
-    font-weight: 500;
+    font-weight: bold;
     font-style: italic;
 }
 em {
@@ -33,7 +36,7 @@ em {
     text-decoration: underline;
 }
 
-.bold { font-weight: 500; }
+.bold { font-weight: bold; }
 .italic { font-style: italic; }
 
 .top-bar {

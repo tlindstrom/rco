@@ -6432,13 +6432,15 @@ template {
 
 body {
   font-size: 17px;
-  font-weight: 300; }
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Raleway; }
 
 strong {
-  font-weight: 500;
+  font-weight: bold;
   font-style: italic; }
 
 em {
@@ -6449,7 +6451,7 @@ em {
   text-decoration: underline; }
 
 .bold {
-  font-weight: 500; }
+  font-weight: bold; }
 
 .italic {
   font-style: italic; }
@@ -6636,6 +6638,9 @@ table.ptext {
   border-radius: 10px;
   padding: 0 5px;
   margin: 3px; }
+
+.chinese, [data-word] {
+  font-weight: 300; }
 
 /*
 @import 'typography';
