@@ -1,6 +1,6 @@
 var TOUCH_DETECTED = false;
 
-let rco = {
+var rco = {
     // pronounce a Chinese phrase using the browser text to speech API
     pronounce(phrase) {
         var msg = new SpeechSynthesisUtterance(phrase);
@@ -49,6 +49,24 @@ $(document).ready(function(){
         $('#wordbox').find(".chinese").html(chinese);
         $('#wordbox').find(".pinyin").html(pinyin);
         $('#wordbox').find(".meaning").html(meaning);
+
+        if (TOUCH_DETECTED){
+            $('#wordbox').find(".controls").html('');
+
+            let listenButton = $(`<button><i class="fas fa-fw fa-volume-up"></i></button>`);
+            listenButton.off('click').on('click', () => { rco.pronounce(chinese) });
+            $('#wordbox').find(".controls").append(listenButton);
+
+            console.log(element);
+
+            if (element.attr('data-wordpage')){
+                let wordPageButton = $(`<button><i class="fas fa-fw fa-book"></i></button>`);
+                wordPageButton.off('click').on('click', () => { window.location = PREFIX + '/words/' + element.attr('data-wordpage') + '.html' });
+                $('#wordbox').find(".controls").append(wordPageButton);
+            }            
+        }
+
+
         $('#wordbox').show();
     }
 
@@ -58,7 +76,8 @@ $(document).ready(function(){
         });
 
         $(this).mouseleave(function(){
-            $('#wordbox').hide();
+            if (!TOUCH_DETECTED)
+                $('#wordbox').hide();
         });
 
         $(this).click(function(){

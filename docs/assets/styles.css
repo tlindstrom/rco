@@ -6564,12 +6564,21 @@ h3 [data-word] {
   #wordbox .meaning {
     font-size: 18px;
     font-style: italic; }
+  #wordbox .controls {
+    padding: 10px; }
+    #wordbox .controls button {
+      cursor: pointer;
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid gainsboro;
+      background-color: #fafafa;
+      border-radius: 5px; }
   @media (max-width: 991px) {
     #wordbox {
       position: fixed;
-      top: 10px !important;
+      bottom: 10px !important;
       right: 10px  !important;
-      bottom: inherit !important;
+      top: inherit !important;
       left: inherit !important;
       transform: none; } }
 
