@@ -6601,7 +6601,7 @@ h3 [data-word] {
 .example-sentence {
   margin: 30px 0;
   padding-left: 15px;
-  border-left: 1px solid #323232; }
+  border-left: 1px solid #3c3c3c; }
   .example-sentence .meaning {
     font-style: italic; }
 
@@ -6647,7 +6647,7 @@ table.ptext {
   margin: 20px 10px;
   margin-left: 0;
   margin-top: 0;
-  font-size: 15px; }
+  font-size: 13px; }
   .structure-hint [data-word] {
     font-size: 17px; }
 
