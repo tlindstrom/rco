@@ -9,7 +9,7 @@
         cursor: pointer;
 
         &:hover {
-            text-decoration: underline;
+            
         }
     }
 
@@ -106,7 +106,7 @@ h3 [data-word]{ font-size: 28px; }
 
     margin: 30px 0;
     padding-left: 15px;
-    border-left: 4px solid lightgreen;
+    border-left: 1px solid rgb(50,50,50);
 
     .pinyin {
         
@@ -185,10 +185,12 @@ table.ptext {
 
 .structure-hint {
     display: inline-block;
-    border: 1px solid rgb(100,100,100);
-    border-radius: 7px;
-    padding: 4px 8px;
-    margin: 3px;
+    border-bottom: 1px solid $dark-gray;
+    /* border-radius: 7px; */
+    padding: 0px 4px;
+    margin: 20px 10px;
+    margin-left: 0;
+    margin-top: 0;
     font-size: 15px;
 
     [data-word] {
@@ -198,4 +200,19 @@ table.ptext {
 
 .chinese, [data-word] {
     font-weight: 300;
+}
+
+p {
+    .chinese-sentence {
+        font-size: 20px;
+        [data-word][data-word][data-word] {
+            font-size: 20px;
+        }
+    }
+    .chinese {
+        font-size: 20px;
+    }
+    [data-word] {
+        font-size: 20px;
+    }
 }

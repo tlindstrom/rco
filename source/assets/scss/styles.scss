@@ -6,6 +6,7 @@ $breakpoint: 991px;
 
 $chinese-font-size: 24px;
 
+$dark-gray: rgb(60,60,60);
 $highlight-color-1: #009DFF;
 $highlight-color-2: #9CD9FF;
 
@@ -28,12 +29,12 @@ strong {
 }
 em {
     font-style: italic;
-    text-decoration: underline;    
+    border-bottom: 1px solid $dark-gray
 }
 
 
 .underlined {
-    text-decoration: underline;
+    border-bottom: 1px solid $dark-gray
 }
 
 .bold { font-weight: bold; }
@@ -53,7 +54,7 @@ em {
 
             .logo {
 
-                color: rgb(30,30,30);
+                color: $dark-gray;
                 margin-left: -10px;
     
                 &:hover, &:visited, &:link, &:active {
@@ -169,3 +170,12 @@ em {
 
 
 
+// Typography
+
+/*
+h2 {
+    font-size: 28px;
+    margin-top: 45px;
+    margin-bottom: 15px;
+}
+*/
