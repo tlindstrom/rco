@@ -185,10 +185,15 @@ table.ptext {
 
 .structure-hint {
     display: inline-block;
-    background-color: rgb(230,230,230);
-    border-radius: 10px;
-    padding: 0 5px;
+    border: 1px solid rgb(100,100,100);
+    border-radius: 7px;
+    padding: 4px 8px;
     margin: 3px;
+    font-size: 15px;
+
+    [data-word] {
+        font-size: 17px;
+    }
 }
 
 .chinese, [data-word] {
