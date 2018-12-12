@@ -6648,6 +6648,12 @@ table.ptext {
   margin-left: 0;
   margin-top: 0;
   font-size: 13px; }
+  .structure-hint .chinese-sentence {
+    font-size: 17px; }
+    .structure-hint .chinese-sentence [data-word][data-word][data-word] {
+      font-size: 17px; }
+  .structure-hint .chinese {
+    font-size: 17px; }
   .structure-hint [data-word] {
     font-size: 17px; }
 
