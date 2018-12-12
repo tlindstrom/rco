@@ -193,6 +193,15 @@ table.ptext {
     margin-top: 0;
     font-size: 13px;
 
+    .chinese-sentence {
+        font-size: 17px;
+        [data-word][data-word][data-word] {
+            font-size: 17px;
+        }
+    }
+    .chinese {
+        font-size: 17px;
+    }
     [data-word] {
         font-size: 17px;
     }
