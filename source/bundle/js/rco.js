@@ -1,4 +1,6 @@
-var TOUCH_DETECTED = false;
+import $ from 'jquery';
+
+window['TOUCH_DETECTED'] = false;
 
 var rco = {
     // pronounce a Chinese phrase using the browser text to speech API
@@ -13,7 +15,7 @@ var rco = {
 $(document).ready(function(){
 
     document.body.addEventListener('touchstart', function () {
-        TOUCH_DETECTED = true;
+        window['TOUCH_DETECTED'] = true;
     });
     
 
@@ -50,7 +52,7 @@ $(document).ready(function(){
         $('#wordbox').find(".pinyin").html(pinyin);
         $('#wordbox').find(".meaning").html(meaning);
 
-        if (TOUCH_DETECTED){
+        if (window['TOUCH_DETECTED']){
             $('#wordbox').find(".controls").html('');
 
             let listenButton = $(`<button><i class="fas fa-fw fa-volume-up"></i></button>`);

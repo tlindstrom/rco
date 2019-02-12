@@ -163,9 +163,6 @@ fs.mkdirSync(__dirname + '/dist/assets');
 console.log('COPYING IMAGES');
 fs.copySync(__dirname + '/source/assets/img', __dirname + '/dist/assets/img');
 
-console.log('COPYING JS');
-fs.copySync(__dirname + '/source/assets/js', __dirname + '/dist/assets/js');
-
 console.log('COMPILING SCSS');
 let renderedCss = sass.renderSync({
     file: __dirname + '/source/assets/scss/styles.scss'
