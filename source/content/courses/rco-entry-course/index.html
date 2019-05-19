@@ -1,0 +1,29 @@
+{
+    "title": "Entry Course",
+
+    chapters: () => {
+
+        let texts = data.content.courses['rco-entry-course']._pages
+        .filter(x => x.filename !== 'index.html')
+        .filter(x => !x.filename.startsWith('_'))
+        .sort((a,b) => (a, b) => (a.priority > b.priority) ? 1 : -1);
+
+        return texts;
+    }
+}
+---
+
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="container">
+
+    Bla bla bla
+
+    {% for text in page.chapters() %}
+        <a href="{{text.url}}">{{ text.metadata.title }}</a><br>
+    {% endfor %}
+</div>
+
+{% endblock %}
